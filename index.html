@@ -6,29 +6,40 @@
   <title>Kfz. Ingenieurbüro TAM - TÜV NORD</title>
   <style>
     :root {
-      --tuv-blue: #003E92;      /* Pantone 293 C */
-      --tuv-navy: #041E42;      /* Pantone 282 C */
+      /* Resmi TÜV NORD Kurumsal Renk Paleti */
+      --dark-blue: #00003c;      /* Pantone 282 C */
+      --electric-blue: #001ED2;  /* Pantone 293 C */
+      --tuv-yellow: #ffeb00;     /* Trustworthy Yellow */
+      --tuv-green: #047857;      /* Kurumsal Koyu Yeşil */
+      --tuv-turquoise: #008b8b;  /* Kurumsal Koyu Turkuaz */
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: #f1f5f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
+    body { background: #e2e8f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
     
-    /* Dış Kart - Net Dikdörtgen */
-    .card { background: #ffffff; width: 100%; max-width: 420px; border-radius: 0px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); text-align: center; overflow: hidden; border: 1px solid #e2e8f0; }
+    /* Dış kart - Tam Dikdörtgen */
+    .card { background: #ffffff; width: 100%; max-width: 440px; border-radius: 0px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); text-align: center; overflow: hidden; border: 1px solid #cbd5e1; }
     
-    /* Tabela Üst Bloğu */
+    /* Üst Tabela Alanı: Büyütülmüş Logo + Kfz-Prüfstelle + HU-Plakette */
     .header-navy-block {
-      background-color: var(--tuv-navy);
-      padding: 10px 16px 10px 12px;
+      background-color: var(--dark-blue);
+      padding: 6px 14px 6px 8px;
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
-      gap: 14px;
       width: 100%;
-      height: 78px;
+      height: 82px;
+      position: relative;
     }
     
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 100%;
+    }
+
     .tuv-logo {
-      height: 52px;
+      height: 70px; /* Logo neredeyse sıfıra yakın büyütüldü */
       width: auto;
       object-fit: contain;
       display: block;
@@ -36,88 +47,112 @@
 
     .header-title-text {
       color: #ffffff;
-      font-size: 24px;
+      font-size: 23px;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       white-space: nowrap;
     }
 
-    .content-area { padding: 20px; }
+    /* Kılavuzdaki Sarı HU Plaketi Rozeti */
+    .plakette-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--tuv-yellow);
+      color: #000000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #000000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+    }
+    .plakette-hu { font-size: 14px; font-weight: 900; line-height: 1; }
+    .plakette-year { font-size: 9px; font-weight: 800; }
+
+    .content-area { padding: 22px 20px; }
     
-    .title { font-size: 22px; font-weight: 800; color: var(--tuv-blue); margin-bottom: 2px; }
-    .subtitle { font-size: 15px; font-weight: 600; color: #475569; margin-bottom: 18px; }
+    .title { font-size: 23px; font-weight: 800; color: var(--electric-blue); margin-bottom: 2px; }
+    .subtitle { font-size: 15.5px; font-weight: 700; color: #334155; margin-bottom: 18px; }
     
-    /* Zarif, İnce ve Açık Renkli Butonlar */
-    .btn-group { margin-bottom: 18px; }
+    /* Daraltılmış ve Uyumlu Buton Grubu */
+    .btn-group { 
+      max-width: 330px; 
+      margin: 0 auto 18px auto; 
+    }
     .btn { 
       display: flex; 
       align-items: center; 
       justify-content: center; 
-      gap: 8px;
+      gap: 10px;
       width: 100%; 
-      padding: 11px 14px; 
-      margin-bottom: 9px; 
+      padding: 12px 14px; 
+      margin-bottom: 10px; 
       border-radius: 4px; 
       text-decoration: none; 
-      font-weight: 600; 
+      font-weight: 700; 
       font-size: 14.5px; 
       transition: all 0.2s ease; 
     }
-    .btn:active { transform: scale(0.99); }
-    .btn-icon { width: 18px; height: 18px; fill: currentColor; }
+    .btn:active { transform: scale(0.98); }
+    .btn-icon { width: 19px; height: 19px; flex-shrink: 0; }
 
-    /* Açık Mavi Rota Butonu */
+    /* 1. Buton: Rota (Açık Electric Blue Zemin - Koyu Mavi İkon) */
     .btn-maps { 
       background: #eff6ff; 
-      color: #003E92; 
-      border: 1px solid #bfdbfe; 
+      color: var(--electric-blue); 
+      border: 1.5px solid #bfdbfe; 
     }
+    .btn-maps .btn-icon { fill: var(--electric-blue); }
     .btn-maps:hover { background: #dbeafe; }
     
-    /* Açık Şık Randevu Butonu */
+    /* 2. Buton: Randevu (Açık Dark Blue Zemin - Koyu Lacivert İkon) */
     .btn-termin { 
-      background: #f8fafc; 
-      color: #041E42; 
-      border: 1px solid #cbd5e1; 
+      background: #f1f5f9; 
+      color: var(--dark-blue); 
+      border: 1.5px solid #cbd5e1; 
     }
-    .btn-termin:hover { background: #f1f5f9; }
+    .btn-termin .btn-icon { fill: var(--dark-blue); }
+    .btn-termin:hover { background: #e2e8f0; }
     
-    /* Ferah Açık Yeşil Telefon Butonu */
+    /* 3. Buton: Telefon (Açık Yeşil Zemin - Canlı Yeşil İkon) */
     .btn-call { 
       background: #ecfdf5; 
-      color: #047857; 
-      border: 1px solid #a7f3d0; 
+      color: var(--tuv-green); 
+      border: 1.5px solid #a7f3d0; 
     }
+    .btn-call .btn-icon { fill: var(--tuv-green); }
     .btn-call:hover { background: #d1fae5; }
 
     /* Bilgi Kutusu */
     .hours-box { 
-      background: #ffffff; 
-      border: 1px solid #e2e8f0; 
+      background: #f8fafc; 
+      border: 1px solid #cbd5e1; 
       border-radius: 4px; 
-      padding: 14px; 
+      padding: 14px 16px; 
       text-align: left; 
       font-size: 13.5px; 
-      color: #334155; 
+      color: #0f172a; 
       line-height: 1.6; 
     }
     .hours-box strong { 
       display: block; 
       margin-bottom: 5px; 
-      color: var(--tuv-navy); 
+      color: var(--dark-blue); 
       font-size: 14px; 
-      font-weight: 700;
+      font-weight: 800;
     }
     .address-line { 
-      font-weight: 600; 
-      color: var(--tuv-blue); 
+      font-weight: 700; 
+      color: var(--electric-blue); 
       margin-top: 8px; 
       font-size: 13px; 
     }
     .note { 
       margin-top: 6px; 
-      font-weight: 700; 
-      color: #059669; 
+      font-weight: 800; 
+      color: var(--tuv-green); 
       font-size: 12.5px; 
     }
   </style>
@@ -125,35 +160,44 @@
 <body>
 
   <div class="card">
-    <!-- Üst Tabela Alanı -->
+    <!-- Üst Tabela: Büyütülmüş Logo, Kfz-Prüfstelle ve Sarı Plaket -->
     <div class="header-navy-block">
-      <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
-      <div class="header-title-text">Kfz-Prüfstelle</div>
+      <div class="header-left">
+        <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
+        <div class="header-title-text">Kfz-Prüfstelle</div>
+      </div>
+      <div class="plakette-badge">
+        <span class="plakette-hu">HU</span>
+        <span class="plakette-year">TÜV</span>
+      </div>
     </div>
 
     <div class="content-area">
       <div class="title">Duisburg-Hochfeld</div>
       <div class="subtitle">(Kfz-Ingenieurbüro TAM)</div>
 
-      <!-- Daha İnce, Açık Renkli ve Yarışmayan Butonlar -->
+      <!-- Daraltılmış, Ayrışan Renkli ve İkonlu Butonlar -->
       <div class="btn-group">
+        <!-- Rota: Sağa/İleriye Doğru Yön Ok İkonu -->
         <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="btn btn-maps" target="_blank">
-          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/></svg>
           Route & Anfahrt
         </a>
 
+        <!-- Randevu: Takvim (Kalender) İkonu -->
         <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="btn btn-termin" target="_blank">
-          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
           Online-Termin Buchen
         </a>
 
+        <!-- Telefon: Klasik Çağrı İkonu -->
         <a href="tel:+491636814777" class="btn btn-call">
-          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.044 15.044 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.99c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1.11z"/></svg>
           Tel: +49 163 68 14 777
         </a>
       </div>
 
-      <!-- Bilgi Alanı -->
+      <!-- Bilgi Kutusu -->
       <div class="hours-box">
         <strong>🕒 Öffnungszeiten:</strong>
         Mo. - Fr.: 10:30 – 17:00 Uhr<br>
