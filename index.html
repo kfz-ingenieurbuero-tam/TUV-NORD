@@ -8,107 +8,117 @@
     :root {
       --tuv-blue: #003E92;      /* Pantone 293 C */
       --tuv-navy: #041E42;      /* Pantone 282 C */
-      --btn-maps: #003E92;
-      --btn-termin: #041E42;
-      --btn-call: #047857;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: #e2e8f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
+    body { background: #f1f5f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
     
-    /* Dış kart - Tam Dikdörtgen */
-    .card { background: #ffffff; width: 100%; max-width: 440px; border-radius: 0px; box-shadow: 0 12px 32px rgba(0,0,0,0.16); text-align: center; overflow: hidden; border: 1px solid #cbd5e1; }
+    /* Dış Kart - Net Dikdörtgen */
+    .card { background: #ffffff; width: 100%; max-width: 420px; border-radius: 0px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); text-align: center; overflow: hidden; border: 1px solid #e2e8f0; }
     
-    /* Üst Tabela Alanı: Soldan ve alttan lacivert pay bırakıldı */
+    /* Tabela Üst Bloğu */
     .header-navy-block {
       background-color: var(--tuv-navy);
-      padding: 10px 18px 10px 14px;
+      padding: 10px 16px 10px 12px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       width: 100%;
-      min-height: 82px;
+      height: 78px;
     }
     
     .tuv-logo {
-      height: 54px;
+      height: 52px;
       width: auto;
       object-fit: contain;
       display: block;
-      border-radius: 2px;
     }
 
     .header-title-text {
       color: #ffffff;
-      font-size: 25px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: 0.5px;
       white-space: nowrap;
     }
 
-    .content-area { padding: 22px; }
+    .content-area { padding: 20px; }
     
-    .title { font-size: 24px; font-weight: 800; color: var(--tuv-blue); margin-bottom: 2px; line-height: 1.2; }
-    .subtitle { font-size: 16px; font-weight: 700; color: #334155; margin-bottom: 20px; }
+    .title { font-size: 22px; font-weight: 800; color: var(--tuv-blue); margin-bottom: 2px; }
+    .subtitle { font-size: 15px; font-weight: 600; color: #475569; margin-bottom: 18px; }
     
-    /* Hızlı Butonlar */
-    .btn-group { margin-bottom: 20px; }
+    /* Zarif, İnce ve Açık Renkli Butonlar */
+    .btn-group { margin-bottom: 18px; }
     .btn { 
       display: flex; 
       align-items: center; 
       justify-content: center; 
-      gap: 10px;
+      gap: 8px;
       width: 100%; 
-      padding: 15px; 
-      margin-bottom: 10px; 
-      border-radius: 6px; 
+      padding: 11px 14px; 
+      margin-bottom: 9px; 
+      border-radius: 4px; 
       text-decoration: none; 
-      font-weight: 700; 
-      font-size: 15.5px; 
-      letter-spacing: 0.3px;
-      transition: transform 0.1s ease, filter 0.2s ease; 
+      font-weight: 600; 
+      font-size: 14.5px; 
+      transition: all 0.2s ease; 
     }
-    .btn:active { transform: scale(0.98); }
-    .btn-icon { width: 20px; height: 20px; fill: currentColor; }
+    .btn:active { transform: scale(0.99); }
+    .btn-icon { width: 18px; height: 18px; fill: currentColor; }
 
-    .btn-maps { background: var(--btn-maps); color: #ffffff; }
-    .btn-maps:hover { filter: brightness(1.15); }
+    /* Açık Mavi Rota Butonu */
+    .btn-maps { 
+      background: #eff6ff; 
+      color: #003E92; 
+      border: 1px solid #bfdbfe; 
+    }
+    .btn-maps:hover { background: #dbeafe; }
     
-    .btn-termin { background: var(--btn-termin); color: #ffffff; }
-    .btn-termin:hover { filter: brightness(1.25); }
-    
-    .btn-call { background: var(--btn-call); color: #ffffff; }
-    .btn-call:hover { filter: brightness(1.1); }
-
-    /* Alt Bilgi Kutusu */
-    .hours-box { 
+    /* Açık Şık Randevu Butonu */
+    .btn-termin { 
       background: #f8fafc; 
+      color: #041E42; 
       border: 1px solid #cbd5e1; 
-      border-radius: 6px; 
-      padding: 16px; 
+    }
+    .btn-termin:hover { background: #f1f5f9; }
+    
+    /* Ferah Açık Yeşil Telefon Butonu */
+    .btn-call { 
+      background: #ecfdf5; 
+      color: #047857; 
+      border: 1px solid #a7f3d0; 
+    }
+    .btn-call:hover { background: #d1fae5; }
+
+    /* Bilgi Kutusu */
+    .hours-box { 
+      background: #ffffff; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 4px; 
+      padding: 14px; 
       text-align: left; 
-      font-size: 14px; 
-      color: #0f172a; 
+      font-size: 13.5px; 
+      color: #334155; 
       line-height: 1.6; 
     }
     .hours-box strong { 
       display: block; 
-      margin-bottom: 6px; 
+      margin-bottom: 5px; 
       color: var(--tuv-navy); 
-      font-size: 15px; 
-      font-weight: 800;
+      font-size: 14px; 
+      font-weight: 700;
     }
     .address-line { 
-      font-weight: 700; 
+      font-weight: 600; 
       color: var(--tuv-blue); 
       margin-top: 8px; 
-      font-size: 13.5px; 
+      font-size: 13px; 
     }
     .note { 
       margin-top: 6px; 
-      font-weight: 800; 
-      color: #047857; 
-      font-size: 13.5px; 
+      font-weight: 700; 
+      color: #059669; 
+      font-size: 12.5px; 
     }
   </style>
 </head>
@@ -125,28 +135,25 @@
       <div class="title">Duisburg-Hochfeld</div>
       <div class="subtitle">(Kfz-Ingenieurbüro TAM)</div>
 
-      <!-- 1. Aksiyon Butonları (Önce Müşteri Aksiyonu) -->
+      <!-- Daha İnce, Açık Renkli ve Yarışmayan Butonlar -->
       <div class="btn-group">
-        <!-- Modern Navigasyon İkonu ile Route -->
         <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="btn btn-maps" target="_blank">
           <svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
           Route & Anfahrt
         </a>
 
-        <!-- Randevu Butonu -->
         <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="btn btn-termin" target="_blank">
           <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
           Online-Termin Buchen
         </a>
 
-        <!-- Arama Butonu -->
         <a href="tel:+491636814777" class="btn btn-call">
           <svg class="btn-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           Tel: +49 163 68 14 777
         </a>
       </div>
 
-      <!-- 2. Çalışma Saatleri ve Adres (Destekleyici Bilgi Olarak Altta) -->
+      <!-- Bilgi Alanı -->
       <div class="hours-box">
         <strong>🕒 Öffnungszeiten:</strong>
         Mo. - Fr.: 10:30 – 17:00 Uhr<br>
