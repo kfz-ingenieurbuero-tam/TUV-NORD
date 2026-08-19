@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kfz. Ingenieurbüro TAM - TÜV NORD</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: #f1f5f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
+    .card { background: #ffffff; width: 100%; max-width: 400px; border-radius: 20px; padding: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-align: center; }
+    .title { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px; line-height: 1.3; }
+    .subtitle { font-size: 14px; font-weight: 600; color: #2563eb; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.5px; }
+    
+    .hours-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; margin-bottom: 20px; text-align: left; font-size: 13px; color: #334155; line-height: 1.6; }
+    .hours-box strong { display: block; margin-bottom: 4px; color: #0f172a; font-size: 14px; }
+    .note { margin-top: 6px; font-weight: 600; color: #16a34a; font-size: 12px; }
+
+    .btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.1s ease; }
+    .btn:active { transform: scale(0.98); }
+    
+    .btn-maps { background: #2563eb; color: #ffffff; }
+    .btn-termin { background: #0f172a; color: #ffffff; }
+    .btn-call { background: #16a34a; color: #ffffff; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="title">Kfz. Ingenieurbüro TAM</div>
+    <div class="subtitle">TÜV NORD Prüfstelle</div>
+
+    <div class="hours-box">
+      <strong>🕒 Öffnungszeiten:</strong>
+      Mo. - Fr.: 10:30 – 17:00 Uhr<br>
+      Freitag: Mittagspause 12:30 – 14:30 Uhr
+      <div class="note">✓ Auch ohne Termin möglich</div>
+    </div>
+
+    <!-- 1. Buton: Rota & Anfahrt -->
+    <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="btn btn-maps" target="_blank">
+      📍 Route & Anfahrt (Google Maps)
+    </a>
+
+    <!-- 2. Buton: Online Randevu -->
+    <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="btn btn-termin" target="_blank">
+      📅 Online Termin Buchen
+    </a>
+
+    <!-- 3. Buton: Doğrudan Telefon Arama -->
+    <a href="tel:+491636814777" class="btn btn-call">
+      📞 Tel: +49 163 68 14 777
+    </a>
+  </div>
+
+</body>
+</html>
