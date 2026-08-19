@@ -3,60 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kfz. Ingenieurbüro TAM - TÜV NORD</title>
+  <title>TÜV NORD Kfz-Prüfstelle - Duisburg-Hochfeld (TAM)</title>
   <style>
     :root {
-      /* Resmi TÜV NORD Kurumsal Renk Paleti */
       --dark-blue: #00003c;      /* Pantone 282 C */
       --electric-blue: #001ED2;  /* Pantone 293 C */
       --tuv-yellow: #ffeb00;     /* Trustworthy Yellow */
-      --tuv-green: #047857;      /* Kurumsal Koyu Yeşil */
-      --tuv-turquoise: #008b8b;  /* Kurumsal Koyu Turkuaz */
+      --tuv-green: #047857;
+      --bg-gray: #f4f6f9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: #e2e8f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
+    body { background: var(--bg-gray); display: flex; justify-content: center; min-height: 100vh; padding: 0; }
     
-    /* Dış kart - Tam Dikdörtgen */
-    .card { background: #ffffff; width: 100%; max-width: 440px; border-radius: 0px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); text-align: center; overflow: hidden; border: 1px solid #cbd5e1; }
+    .container { width: 100%; max-width: 520px; background: #ffffff; box-shadow: 0 10px 40px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
     
-    /* Üst Tabela Alanı: Büyütülmüş Logo + Kfz-Prüfstelle + HU-Plakette */
-    .header-navy-block {
-      background-color: var(--dark-blue);
-      padding: 6px 14px 6px 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: 82px;
+    /* 1. Üst Hero Banner */
+    .hero-header {
+      background: linear-gradient(180deg, var(--dark-blue) 0%, #03142e 100%);
+      padding: 20px 20px 28px 20px;
+      color: #ffffff;
       position: relative;
     }
     
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      height: 100%;
-    }
-
-    .tuv-logo {
-      height: 70px; /* Logo neredeyse sıfıra yakın büyütüldü */
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .header-title-text {
-      color: #ffffff;
-      font-size: 23px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
-    }
-
-    /* Kılavuzdaki Sarı HU Plaketi Rozeti */
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .logo-area { display: flex; align-items: center; gap: 12px; }
+    .tuv-logo { height: 46px; width: auto; object-fit: contain; }
+    .top-bar-title { font-size: 20px; font-weight: 700; border-left: 2px solid rgba(255,255,255,0.3); padding-left: 12px; }
+    
     .plakette-badge {
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--tuv-yellow);
       color: #000000;
@@ -65,147 +41,222 @@
       align-items: center;
       justify-content: center;
       border: 2px solid #000000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      font-weight: 900;
       flex-shrink: 0;
     }
-    .plakette-hu { font-size: 14px; font-weight: 900; line-height: 1; }
-    .plakette-year { font-size: 9px; font-weight: 800; }
+    .plakette-badge span:first-child { font-size: 13px; line-height: 1; }
+    .plakette-badge span:last-child { font-size: 8px; }
 
-    .content-area { padding: 22px 20px; }
-    
-    .title { font-size: 23px; font-weight: 800; color: var(--electric-blue); margin-bottom: 2px; }
-    .subtitle { font-size: 15.5px; font-weight: 700; color: #334155; margin-bottom: 18px; }
-    
-    /* Daraltılmış ve Uyumlu Buton Grubu */
-    .btn-group { 
-      max-width: 330px; 
-      margin: 0 auto 18px auto; 
-    }
-    .btn { 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      gap: 10px;
-      width: 100%; 
-      padding: 12px 14px; 
-      margin-bottom: 10px; 
-      border-radius: 4px; 
-      text-decoration: none; 
-      font-weight: 700; 
-      font-size: 14.5px; 
-      transition: all 0.2s ease; 
-    }
-    .btn:active { transform: scale(0.98); }
-    .btn-icon { width: 19px; height: 19px; flex-shrink: 0; }
+    .welcome-text { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #93c5fd; font-weight: 700; margin-bottom: 6px; }
+    .main-title { font-size: 26px; font-weight: 800; line-height: 1.15; margin-bottom: 12px; }
+    .station-sub { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 600; color: #e2e8f0; background: rgba(255,255,255,0.08); padding: 6px 12px; border-radius: 6px; }
 
-    /* 1. Buton: Rota (Açık Electric Blue Zemin - Koyu Mavi İkon) */
-    .btn-maps { 
-      background: #eff6ff; 
-      color: var(--electric-blue); 
-      border: 1.5px solid #bfdbfe; 
-    }
-    .btn-maps .btn-icon { fill: var(--electric-blue); }
-    .btn-maps:hover { background: #dbeafe; }
-    
-    /* 2. Buton: Randevu (Açık Dark Blue Zemin - Koyu Lacivert İkon) */
-    .btn-termin { 
-      background: #f1f5f9; 
-      color: var(--dark-blue); 
-      border: 1.5px solid #cbd5e1; 
-    }
-    .btn-termin .btn-icon { fill: var(--dark-blue); }
-    .btn-termin:hover { background: #e2e8f0; }
-    
-    /* 3. Buton: Telefon (Açık Yeşil Zemin - Canlı Yeşil İkon) */
-    .btn-call { 
-      background: #ecfdf5; 
-      color: var(--tuv-green); 
-      border: 1.5px solid #a7f3d0; 
-    }
-    .btn-call .btn-icon { fill: var(--tuv-green); }
-    .btn-call:hover { background: #d1fae5; }
+    /* 2. Orta İçerik Alanı */
+    .main-content { padding: 24px 20px; flex: 1; background: var(--bg-gray); }
 
-    /* Bilgi Kutusu */
-    .hours-box { 
-      background: #f8fafc; 
-      border: 1px solid #cbd5e1; 
-      border-radius: 4px; 
-      padding: 14px 16px; 
-      text-align: left; 
-      font-size: 13.5px; 
-      color: #0f172a; 
-      line-height: 1.6; 
+    /* 3 Aksiyon Kartı */
+    .cards-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .action-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    .hours-box strong { 
-      display: block; 
-      margin-bottom: 5px; 
-      color: var(--dark-blue); 
-      font-size: 14px; 
+    .action-card:active { transform: scale(0.99); }
+    .card-left { display: flex; align-items: center; gap: 14px; }
+    .icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-circle svg { width: 20px; height: 20px; }
+    
+    .card-info h4 { font-size: 15.5px; font-weight: 800; margin-bottom: 2px; }
+    .card-info p { font-size: 12.5px; color: #64748b; font-weight: 500; }
+    .arrow-icon { color: #94a3b8; font-size: 18px; font-weight: bold; }
+
+    /* Kart Renk Temaları */
+    .card-route .icon-circle { background: #eff6ff; }
+    .card-route .icon-circle svg { fill: var(--electric-blue); }
+    .card-route h4 { color: var(--electric-blue); }
+
+    .card-termin .icon-circle { background: #f1f5f9; }
+    .card-termin .icon-circle svg { fill: var(--dark-blue); }
+    .card-termin h4 { color: var(--dark-blue); }
+
+    .card-call .icon-circle { background: #ecfdf5; }
+    .card-call .icon-circle svg { fill: var(--tuv-green); }
+    .card-call h4 { color: var(--tuv-green); }
+
+    /* 3. Büyütülmüş Açılış Saatleri & Adres Kartı */
+    .info-card {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .info-section { margin-bottom: 18px; }
+    .info-title { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 800; color: var(--dark-blue); margin-bottom: 8px; }
+    .info-title svg { width: 20px; height: 20px; fill: var(--dark-blue); }
+    .info-text { font-size: 15px; color: #1e293b; line-height: 1.6; font-weight: 600; padding-left: 28px; }
+    
+    .divider { height: 1px; background: #e2e8f0; margin: 16px 0; }
+    
+    .badge-no-termin {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      color: var(--tuv-green);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: 800;
+      margin-top: 4px;
+      width: 100%;
+      justify-content: center;
     }
-    .address-line { 
-      font-weight: 700; 
-      color: var(--electric-blue); 
-      margin-top: 8px; 
-      font-size: 13px; 
+
+    /* 4. Kurumsal Footer (Üst Zeminle Bütünleşik) */
+    .footer-navy {
+      background-color: var(--dark-blue);
+      padding: 20px;
+      color: #ffffff;
+      text-align: center;
     }
-    .note { 
-      margin-top: 6px; 
-      font-weight: 800; 
-      color: var(--tuv-green); 
-      font-size: 12.5px; 
-    }
+    .footer-features { display: flex; justify-content: space-around; font-size: 11px; font-weight: 600; color: #cbd5e1; margin-top: 10px; }
+    .footer-brand { font-size: 14px; font-weight: 800; letter-spacing: 0.5px; color: #ffffff; }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <!-- Üst Tabela: Büyütülmüş Logo, Kfz-Prüfstelle ve Sarı Plaket -->
-    <div class="header-navy-block">
-      <div class="header-left">
-        <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
-        <div class="header-title-text">Kfz-Prüfstelle</div>
+  <div class="container">
+    
+    <!-- Üst Hero Banner -->
+    <div class="hero-header">
+      <div class="top-bar">
+        <div class="logo-area">
+          <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
+          <div class="top-bar-title">Kfz-Prüfstelle</div>
+        </div>
+        <div class="plakette-badge">
+          <span>HU</span>
+          <span>TÜV</span>
+        </div>
       </div>
-      <div class="plakette-badge">
-        <span class="plakette-hu">HU</span>
-        <span class="plakette-year">TÜV</span>
+
+      <div class="welcome-text">Willkommen bei Ihrer</div>
+      <div class="main-title">TÜV NORD<br>Kfz-Prüfstelle</div>
+      
+      <div class="station-sub">
+        📍 Duisburg-Hochfeld (Kfz-Ingenieurbüro TAM)
+      </div>
+    </div>
+
+    <!-- Orta İçerik -->
+    <div class="main-content">
+      
+      <!-- 3 Aksiyon Kartı -->
+      <div class="cards-grid">
+        
+        <!-- 1. Rota -->
+        <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="action-card card-route" target="_blank">
+          <div class="card-left">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24"><path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/></svg>
+            </div>
+            <div class="card-info">
+              <h4>Route & Anfahrt</h4>
+              <p>So finden Sie uns ganz einfach</p>
+            </div>
+          </div>
+          <div class="arrow-icon">›</div>
+        </a>
+
+        <!-- 2. Randevu -->
+        <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="action-card card-termin" target="_blank">
+          <div class="card-left">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+            </div>
+            <div class="card-info">
+              <h4>Online-Termin buchen</h4>
+              <p>Wunschtermin bequem reservieren</p>
+            </div>
+          </div>
+          <div class="arrow-icon">›</div>
+        </a>
+
+        <!-- 3. Telefon -->
+        <a href="tel:+491636814777" class="action-card card-call">
+          <div class="card-left">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
+            <div class="card-info">
+              <h4>Tel: +49 163 68 14 777</h4>
+              <p>Wir sind gerne für Sie da</p>
+            </div>
+          </div>
+          <div class="arrow-icon">›</div>
+        </a>
+
+      </div>
+
+      <!-- Büyütülmüş Bilgi Kutusu -->
+      <div class="info-card">
+        <div class="info-section">
+          <div class="info-title">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
+            Öffnungszeiten
+          </div>
+          <div class="info-text">
+            Mo. – Fr.: 10:30 – 17:00 Uhr<br>
+            Freitag: 12:30 – 14:30 Uhr Mittagspause
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="info-section">
+          <div class="info-title">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Adresse
+          </div>
+          <div class="info-text">
+            Karl-Jarres-Str. 92<br>
+            47053 Duisburg
+          </div>
+        </div>
+
+        <div class="badge-no-termin">
+          ✓ Auch ohne Termin möglich
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Alt Footer -->
+    <div class="footer-navy">
+      <div class="footer-brand">TÜV NORD Mobilität</div>
+      <div class="footer-features">
+        <span>✓ Sicherheit</span>
+        <span>✓ Unabhängig</span>
+        <span>✓ Kompetent</span>
       </div>
     </div>
 
-    <div class="content-area">
-      <div class="title">Duisburg-Hochfeld</div>
-      <div class="subtitle">(Kfz-Ingenieurbüro TAM)</div>
-
-      <!-- Daraltılmış, Ayrışan Renkli ve İkonlu Butonlar -->
-      <div class="btn-group">
-        <!-- Rota: Sağa/İleriye Doğru Yön Ok İkonu -->
-        <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="btn btn-maps" target="_blank">
-          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/></svg>
-          Route & Anfahrt
-        </a>
-
-        <!-- Randevu: Takvim (Kalender) İkonu -->
-        <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="btn btn-termin" target="_blank">
-          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
-          Online-Termin Buchen
-        </a>
-
-        <!-- Telefon: Klasik Çağrı İkonu -->
-        <a href="tel:+491636814777" class="btn btn-call">
-          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.044 15.044 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.99c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1.11z"/></svg>
-          Tel: +49 163 68 14 777
-        </a>
-      </div>
-
-      <!-- Bilgi Kutusu -->
-      <div class="hours-box">
-        <strong>🕒 Öffnungszeiten:</strong>
-        Mo. - Fr.: 10:30 – 17:00 Uhr<br>
-        Freitag: 12:30 – 14:30 Uhr Mittagspause
-        <div class="address-line">📍 Karl-Jarres-Str. 92, 47053 Duisburg</div>
-        <div class="note">✓ Auch ohne Termin möglich</div>
-      </div>
-    </div>
   </div>
 
 </body>
