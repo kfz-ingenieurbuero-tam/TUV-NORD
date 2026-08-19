@@ -8,41 +8,37 @@
     :root {
       --tuv-blue: #003E92;      /* Pantone 293 C */
       --tuv-navy: #041E42;      /* Pantone 282 C */
-      
-      /* Göz Yormayan Şık Mat Tonlar */
-      --btn-maps-matt: #1d4ed8;    /* Mat Kurumsal Mavi */
-      --btn-termin-matt: #1e293b;  /* Mat Koyu Antrasit */
-      --btn-call-matt: #047857;    /* Mat Zümrüt Yeşili */
+      --btn-primary: #041E42;   /* Kurumsal Asil Lacivert */
+      --btn-accent: #0f766e;    /* Mat Şık Zümrüt Petrol Yeşili */
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: #e2e8f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
     
-    /* Dış kart - Tam Dikdörtgen */
+    /* Dış kart - Dikdörtgen */
     .card { background: #ffffff; width: 100%; max-width: 440px; border-radius: 0px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); text-align: center; overflow: hidden; border: 1px solid #cbd5e1; }
     
-    /* Üst Tabela Alanı */
+    /* Üst Tabela Alanı: Üste ve alta sıfıra yakın tam doluluk */
     .header-navy-block {
       background-color: var(--tuv-navy);
-      padding: 12px 18px;
+      padding: 0 18px 0 0;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       gap: 16px;
       width: 100%;
-      min-height: 80px;
+      height: 84px;
     }
     
     .tuv-logo {
-      height: 56px;
+      height: 100%; /* Üst ve alt sınırlara sıfırlandı */
       width: auto;
-      object-fit: contain;
+      object-fit: fill;
       display: block;
-      border-radius: 0px;
     }
 
     .header-title-text {
       color: #ffffff;
-      font-size: 25px;
+      font-size: 26px;
       font-weight: 700;
       letter-spacing: 0.5px;
       white-space: nowrap;
@@ -53,7 +49,7 @@
     .title { font-size: 24px; font-weight: 800; color: var(--tuv-blue); margin-bottom: 2px; line-height: 1.2; }
     .subtitle { font-size: 17px; font-weight: 700; color: #1e293b; margin-bottom: 18px; }
     
-    /* Net ve Okunaklı Bilgi Kutusu */
+    /* Okunaklı Bilgi Kutusu */
     .hours-box { 
       background: #f8fafc; 
       border: 1.5px solid #cbd5e1; 
@@ -81,11 +77,11 @@
     .note { 
       margin-top: 8px; 
       font-weight: 800; 
-      color: #047857; 
+      color: #0f766e; 
       font-size: 14px; 
     }
 
-    /* Yüksek Kontrastlı, Mat ve Şık Butonlar */
+    /* Uyumlu, Asil ve Gözü Yormayan Butonlar */
     .btn { 
       display: flex; 
       align-items: center; 
@@ -96,26 +92,29 @@
       border-radius: 6px; 
       text-decoration: none; 
       font-weight: 700; 
-      font-size: 16px; 
+      font-size: 15.5px; 
       letter-spacing: 0.3px;
       transition: transform 0.1s ease, filter 0.2s ease; 
     }
     .btn:active { transform: scale(0.98); }
     
-    .btn-maps { background: var(--btn-maps-matt); color: #ffffff; }
-    .btn-maps:hover { filter: brightness(1.1); }
+    /* 1. Buton: Rota (Kurumsal Lacivert) */
+    .btn-maps { background: var(--tuv-navy); color: #ffffff; border: 1px solid rgba(255,255,255,0.1); }
+    .btn-maps:hover { filter: brightness(1.25); }
     
-    .btn-termin { background: var(--btn-termin-matt); color: #ffffff; }
-    .btn-termin:hover { filter: brightness(1.15); }
+    /* 2. Buton: Randevu (TÜV Mavisi) */
+    .btn-termin { background: var(--tuv-blue); color: #ffffff; }
+    .btn-termin:hover { filter: brightness(1.1); }
     
-    .btn-call { background: var(--btn-call-matt); color: #ffffff; }
-    .btn-call:hover { filter: brightness(1.1); }
+    /* 3. Buton: Telefon (Zarif Mat Zümrüt) */
+    .btn-call { background: var(--btn-accent); color: #ffffff; }
+    .btn-call:hover { filter: brightness(1.15); }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <!-- Üst Tabela Alanı -->
+    <!-- Üst Tabela: Sıfırlanmış Büyük Logo ve Başlık -->
     <div class="header-navy-block">
       <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
       <div class="header-title-text">Kfz-Prüfstelle</div>
@@ -133,17 +132,17 @@
         <div class="note">✓ Auch ohne Termin möglich</div>
       </div>
 
-      <!-- 1. Buton: Harita / Rota -->
+      <!-- 1. Buton: Rota -->
       <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="btn btn-maps" target="_blank">
         📍 Route & Anfahrt
       </a>
 
-      <!-- 2. Buton: Online Randevu -->
+      <!-- 2. Buton: Randevu -->
       <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="btn btn-termin" target="_blank">
         📅 Online-Termin Buchen
       </a>
 
-      <!-- 3. Buton: Telefon Arama -->
+      <!-- 3. Buton: Telefon -->
       <a href="tel:+491636814777" class="btn btn-call">
         📞 Tel: +49 163 68 14 777
       </a>
