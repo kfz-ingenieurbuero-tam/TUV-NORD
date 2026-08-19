@@ -6,31 +6,36 @@
   <title>Kfz. Ingenieurbüro TAM - TÜV NORD</title>
   <style>
     :root {
-      --tuv-blue: #003E92;     /* Pantone 293 C */
-      --tuv-navy-base: #041E42;/* Pantone 282 C */
-      --tuv-dark: #002860;
+      --tuv-blue: #003E92;      /* Pantone 293 C */
+      --tuv-navy: #041E42;      /* Pantone 282 C */
+      --tuv-dark-btn: #0f172a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: #f1f5f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
     
-    .card { background: #ffffff; width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-align: center; overflow: hidden; }
+    .card { background: #ffffff; width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; overflow: hidden; }
     
-    /* Logo Alanı - Altına Plinth Eklendi */
-    .header-bar { position: relative; background: #ffffff; padding: 16px 24px; border-radius: 20px 20px 0 0; }
-    .tuv-logo-container { display: flex; justify-content: flex-end; align-items: center; }
-    .tuv-logo { height: 42px; width: auto; object-fit: contain; }
-
-    /* Logonun Altındaki PMS 282 C Plinth */
-    .tuv-base-plinth { position: relative; height: 100px; /* Plinth yüksekliği arttırıldı */ width: calc(100% - 48px); margin: 0 auto; background-color: var(--tuv-navy-base); border-radius: 0 0 10px 10px; /* Plinth'in altını yuvarla */ box-shadow: inset 0 -3px 8px rgba(0,0,0,0.2); /* Dokusal derinlik için */ overflow: hidden; /* Bevel efekti için */ }
-
-    /* Bevel/Adım Efekti */
-    .tuv-base-plinth::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 35px; /* Bevel yüksekliği referans görseline göre */ background-color: rgba(255,255,255,0.05); /* Çok hafif açılma */ border-top: 1px solid rgba(255,255,255,0.1); border-radius: 0 0 10px 10px; }
+    /* Üst Alan: Beyaz Yok, Çizgi Yok, Tamamen Blok PMS 282 C */
+    .header-navy-block {
+      background-color: var(--tuv-navy);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+    }
+    .tuv-logo {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
 
     .content-area { padding: 24px; }
     
     .station-label { font-size: 13px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
     .title { font-size: 22px; font-weight: 800; color: var(--tuv-blue); margin-bottom: 2px; line-height: 1.2; }
-    .subtitle { font-size: 17px; font-weight: 700; color: #334155; margin-bottom: 16px; }
+    .subtitle { font-size: 17px; font-weight: 700; color: #334155; margin-bottom: 18px; }
     
     .hours-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; margin-bottom: 20px; text-align: left; font-size: 13.5px; color: #334155; line-height: 1.6; }
     .hours-box strong { display: block; margin-bottom: 6px; color: #0f172a; font-size: 14px; }
@@ -41,8 +46,8 @@
     .btn:active { transform: scale(0.98); }
     
     .btn-maps { background: var(--tuv-blue); color: #ffffff; }
-    .btn-maps:hover { background: var(--tuv-dark); }
-    .btn-termin { background: #0f172a; color: #ffffff; }
+    .btn-maps:hover { background: #002e70; }
+    .btn-termin { background: var(--tuv-dark-btn); color: #ffffff; }
     .btn-termin:hover { background: #1e293b; }
     .btn-call { background: #16a34a; color: #ffffff; }
     .btn-call:hover { background: #15803d; }
@@ -51,15 +56,10 @@
 <body>
 
   <div class="card">
-    <!-- Sağ Üst Köşe Logo ve Plinth -->
-    <div class="header-bar">
-      <div class="tuv-logo-container">
-        <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
-      </div>
+    <!-- Tamamen PMS 282 C Koyu Lacivert Üst Blok (Beyaz Zemin ve Çizgi Tamamen Kaldırıldı) -->
+    <div class="header-navy-block">
+      <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
     </div>
-    
-    <!-- Logonun Altındaki Karmaşık PMS 282 C Altlık (Plinth) -->
-    <div class="tuv-base-plinth"></div>
 
     <div class="content-area">
       <div class="station-label">TÜV NORD Station</div>
