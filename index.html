@@ -54,7 +54,7 @@
     }
     .plakette-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.42); display: block; }
 
-    /* 2. Büyütülmüş Partner Logo Alanı & Başlık */
+    /* 2. Partner Logo Alanı & Başlık (Pantone 282 C Uygulandı) */
     .station-bar {
       background: #f1f5f9;
       border-bottom: 1px solid #e2e8f0;
@@ -73,9 +73,15 @@
       flex: 1;
     }
 
-    .station-city { font-size: 22px; font-weight: 900; color: var(--electric-blue); letter-spacing: -0.2px; line-height: 1.15; }
+    /* Duisburg-Hochfeld: Pantone 282 C (Tabela ile birebir aynı renk) */
+    .station-city { 
+      font-size: 22px; 
+      font-weight: 900; 
+      color: var(--dark-blue); 
+      letter-spacing: -0.2px; 
+      line-height: 1.15; 
+    }
     
-    /* Büyütülmüş TAM Partner Logo Alanı */
     .partner-logo-container {
       display: flex;
       align-items: center;
@@ -178,18 +184,17 @@
     }
     .section-title svg { width: 18px; height: 18px; fill: var(--dark-blue); }
 
+    .info-grid { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: #1e293b; font-weight: 600; line-height: 1.5; margin-bottom: 14px; }
+    .address-highlight { color: var(--dark-blue); font-weight: 700; margin-top: 2px; }
+
     .station-photo-banner {
       width: 100%;
-      height: 150px;
+      height: 155px;
       border-radius: 4px;
       overflow: hidden;
-      margin-bottom: 12px;
       border: 1px solid #cbd5e1;
     }
     .station-photo-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .info-grid { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: #1e293b; font-weight: 600; line-height: 1.5; }
-    .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
 
     /* 5. Prüfleistungen Listesi */
     .services-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
@@ -198,7 +203,7 @@
       padding: 10px 12px;
       border-radius: 4px;
       border: 1px solid #e2e8f0;
-      border-left: 3.5px solid var(--electric-blue);
+      border-left: 3.5px solid var(--dark-blue);
       text-align: left;
     }
     .srv-head { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 800; color: #1e293b; }
@@ -220,7 +225,7 @@
     [dir="rtl"] .station-left-group, [dir="rtl"] .services-list li { text-align: right; align-items: flex-end; }
     [dir="rtl"] .srv-desc { padding-left: 0; padding-right: 23px; }
     [dir="rtl"] .top-bar-title { border-left: none; border-right: 2.5px solid rgba(255,255,255,0.4); padding-left: 0; padding-right: 14px; }
-    [dir="rtl"] .services-list li { border-left: 1px solid #e2e8f0; border-right: 3.5px solid var(--electric-blue); }
+    [dir="rtl"] .services-list li { border-left: 1px solid #e2e8f0; border-right: 3.5px solid var(--dark-blue); }
     [dir="rtl"] .arrow-svg { transform: rotate(180deg); }
   </style>
 </head>
@@ -242,7 +247,7 @@
       </div>
     </div>
 
-    <!-- 2. Duisburg-Hochfeld + Büyütülmüş TAM Partner Logosu + Dikey Dil Butonları -->
+    <!-- 2. Duisburg-Hochfeld (Pantone 282 C) + TAM Partner Logosu + Dikey Dil Butonları -->
     <div class="station-bar">
       <div class="station-left-group">
         <div class="station-city">Duisburg-Hochfeld</div>
@@ -336,10 +341,6 @@
           <span data-i18n="hoursTitle">Öffnungszeiten & Standort</span>
         </div>
 
-        <div class="station-photo-banner">
-          <img src="kjs1.jpg" alt="Kfz-Prüfstelle Duisburg-Hochfeld">
-        </div>
-
         <div class="info-grid">
           <div>
             <strong data-i18n="daysLabel">Mo. – Fr.:</strong> 10:30 – 17:00 <span data-i18n="uhrLabel">Uhr</span><br>
@@ -348,6 +349,10 @@
           <div class="address-highlight">
             📍 Karl-Jarres-Str. 92, 47053 Duisburg
           </div>
+        </div>
+
+        <div class="station-photo-banner">
+          <img src="kjs1.jpg" alt="Kfz-Prüfstelle Duisburg-Hochfeld">
         </div>
       </div>
 
@@ -382,7 +387,7 @@
           <li>
             <div class="srv-head">
               <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv4Head">Taxi, Mietwagen & Busse (BOKraft)</span>
+              <span data-i18n="srv4Head">Taxi & Mietwagen Prüfungen (BOKraft)</span>
             </div>
             <div class="srv-desc" data-i18n="srv4Desc">Sonderprüfungen für Fahrzeuge im Personenverkehr (§ 42 BOKraft).</div>
           </li>
@@ -444,7 +449,7 @@
         srv2Desc: "Wiederkehrende Dichtheits- und Sicherheitsprüfung für Autogas (LPG).",
         srv3Head: "Oldtimerbegutachtung (§ 23 StVZO)",
         srv3Desc: "Gutachten zur Einstufung als Oldtimer für das H-Kennzeichen.",
-        srv4Head: "Taxi, Mietwagen & Busse (BOKraft)",
+        srv4Head: "Taxi & Mietwagen Prüfungen (BOKraft)",
         srv4Desc: "Sonderprüfungen für Fahrzeuge im Personenverkehr (§ 42 BOKraft).",
         srv5Head: "Änderungsabnahmen (§ 19.3 StVZO)",
         srv5Desc: "Begutachtung von Umbauten wie Felgen, Fahrwerk oder Anhängerkupplung.",
@@ -477,7 +482,7 @@
         srv2Desc: "LPG otogazlı araçlar için periyodik sızdırmazlık ve güvenlik testi.",
         srv3Head: "Klasik Araç Raporu (H-Plaka / § 23 StVZO)",
         srv3Desc: "Tarihi ve klasik araçlar için tescil uygunluk raporu.",
-        srv4Head: "Taksi, Kiralık Araç & Minibüs (BOKraft)",
+        srv4Head: "Taksi & Kiralık Araç Muayenesi (BOKraft)",
         srv4Desc: "Yolcu taşıyan ticari araçlar için özel periyodik kontroller.",
         srv5Head: "Tadilat ve Değişiklik Onayı (§ 19.3)",
         srv5Desc: "Jant, süspansiyon veya çeki demiri gibi parça montaj onayları.",
@@ -510,7 +515,7 @@
         srv2Desc: "الفحص الدوري لأنظمة وقود الغاز المسال (LPG).",
         srv3Head: "فحص وتقييم السيارات الكلاسيكية (H-Plakette)",
         srv3Desc: "تقارير الاعتماد للسيارات التاريخية والكلاسيكية.",
-        srv4Head: "سيارات الأجرة والتأجير والحافلات (BOKraft)",
+        srv4Head: "سيارات الأجرة والتأجير (BOKraft)",
         srv4Desc: "فحوصات السلامة المعتمدة لمركبات النقل التجاري.",
         srv5Head: "اعتماد التعديلات الفنية على المركبات (§ 19.3)",
         srv5Desc: "فحص واعتماد تعديلات الهيكل والعجلات والإضافات الفنية.",
