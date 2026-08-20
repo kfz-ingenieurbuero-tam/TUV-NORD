@@ -11,7 +11,6 @@
       --text-title: #0a192f;
       --text-muted: #5a6e85;
       
-      /* Net İkon Kutusu Renkleri */
       --icon-route: #002f6c;
       --icon-termin: #041E42;
       --icon-call: #0d6e43;
@@ -20,9 +19,9 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: #e5eaf2; display: flex; justify-content: center; min-height: 100vh; padding: 0; }
     
-    .container { width: 100%; max-width: 480px; background: #ffffff; box-shadow: 0 14px 40px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
+    .container { width: 100%; max-width: 490px; background: #ffffff; box-shadow: 0 14px 40px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
     
-    /* 1. EN ÜSTTE DOĞRUDAN SAF RESMİ TABELA */
+    /* 1. Üst Resmi Tabela */
     .hero-header {
       background-color: var(--dark-blue);
       padding: 16px 18px;
@@ -31,7 +30,6 @@
     
     .top-bar { display: flex; justify-content: space-between; align-items: center; }
     .logo-area { display: flex; align-items: center; gap: 14px; }
-    
     .tuv-logo { height: 60px; width: auto; object-fit: contain; }
     
     .top-bar-title { 
@@ -56,7 +54,7 @@
     }
     .plakette-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.42); display: block; }
 
-    /* 2. SOLDA BAŞLIK & SAĞDA DİKEY DİL BUTONLARI (Hafif Renkli Şık Zemin) */
+    /* 2. Sola Yaslı İstasyon & Sağda Dikey Dil Butonları */
     .station-bar {
       background: #f1f5f9;
       border-bottom: 1px solid #e2e8f0;
@@ -67,20 +65,11 @@
       gap: 12px;
     }
     
-    .station-text {
-      text-align: left;
-      flex: 1;
-    }
+    .station-text { text-align: left; flex: 1; }
     .station-city { font-size: 22px; font-weight: 900; color: var(--electric-blue); letter-spacing: -0.2px; line-height: 1.2; }
     .station-tam { font-size: 14.5px; font-weight: 700; color: #334155; margin-top: 3px; }
 
-    /* Dikey (Alt Alta) Sıralı Dil Butonları */
-    .lang-switcher-vertical {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      flex-shrink: 0;
-    }
+    .lang-switcher-vertical { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
     .lang-btn {
       background: #ffffff;
       border: 1px solid #cbd5e1;
@@ -94,16 +83,12 @@
       transition: all 0.2s ease;
       min-width: 62px;
     }
-    .lang-btn.active, .lang-btn:hover {
-      background: var(--dark-blue);
-      border-color: var(--dark-blue);
-      color: #ffffff;
-    }
+    .lang-btn.active, .lang-btn:hover { background: var(--dark-blue); border-color: var(--dark-blue); color: #ffffff; }
 
-    /* 3. ORTA İÇERİK ALANI */
+    /* 3. Orta İçerik */
     .main-content { padding: 16px 16px 20px 16px; background: #ffffff; flex: 1; }
 
-    /* KARE İKONLU AKSİYON BUTONLARI */
+    /* Butonlar */
     .cards-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
     .action-card {
       background: #ffffff;
@@ -121,16 +106,7 @@
     .action-card:hover { border-color: #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
     
     .card-left { display: flex; align-items: center; gap: 12px; }
-    
-    .icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    .icon-box { width: 44px; height: 44px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .icon-box svg { width: 22px; height: 22px; fill: #ffffff; }
     
     .card-route .icon-box { background: var(--icon-route); }
@@ -142,7 +118,7 @@
     .card-info p { font-size: 12px; margin-top: 2px; font-weight: 500; color: var(--text-muted); }
     .arrow-svg { width: 16px; height: 16px; fill: #94a3b8; flex-shrink: 0; }
 
-    /* 4. AÇILIŞ SAATLERİ & FOTOĞRAFLI İSTASYON VİTRİNİ */
+    /* 4. Açılış Saatleri & Panoramik İstasyon Fotoğrafı */
     .section-card {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
@@ -176,24 +152,21 @@
     .info-grid { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: #1e293b; font-weight: 600; line-height: 1.5; }
     .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
 
-    /* 5. PRÜFLEISTUNGEN LİSTESİ */
-    .services-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    /* 5. GENİŞLETİLMİŞ VE AÇIKLAMALI HİZMET LİSTESİ */
+    .services-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .services-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #1e293b;
       background: #ffffff;
-      padding: 9px 12px;
+      padding: 10px 12px;
       border-radius: 4px;
       border: 1px solid #e2e8f0;
       border-left: 3.5px solid var(--electric-blue);
+      text-align: left;
     }
-    .services-list li svg { width: 14px; height: 14px; fill: #16a34a; flex-shrink: 0; }
+    .srv-head { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 800; color: #1e293b; }
+    .srv-head svg { width: 15px; height: 15px; fill: #16a34a; flex-shrink: 0; }
+    .srv-desc { font-size: 11.5px; color: #64748b; margin-top: 3px; padding-left: 23px; line-height: 1.35; font-weight: 500; }
 
-    /* 6. ALT FOOTER */
+    /* 6. Alt Footer */
     .footer-navy {
       background-color: var(--dark-blue);
       padding: 14px;
@@ -204,8 +177,9 @@
       letter-spacing: 0.4px;
     }
 
-    /* Arapça RTL */
-    [dir="rtl"] .station-text { text-align: right; }
+    /* RTL */
+    [dir="rtl"] .station-text, [dir="rtl"] .services-list li { text-align: right; }
+    [dir="rtl"] .srv-desc { padding-left: 0; padding-right: 23px; }
     [dir="rtl"] .top-bar-title { border-left: none; border-right: 2.5px solid rgba(255,255,255,0.4); padding-left: 0; padding-right: 14px; }
     [dir="rtl"] .services-list li { border-left: 1px solid #e2e8f0; border-right: 3.5px solid var(--electric-blue); }
     [dir="rtl"] .arrow-svg { transform: rotate(180deg); }
@@ -215,7 +189,7 @@
 
   <div class="container" id="pageContainer">
     
-    <!-- 1. En Üstte Doğrudan TÜV NORD Resmi Tabelası -->
+    <!-- 1. Tabela -->
     <div class="hero-header">
       <div class="top-bar">
         <div class="logo-area">
@@ -229,7 +203,7 @@
       </div>
     </div>
 
-    <!-- 2. Sola Çekilen İstasyon Başlığı & Sağda Dikey Dil Butonları (Hafif Renkli Zemin) -->
+    <!-- 2. İstasyon Başlığı & Dikey Dil Butonları -->
     <div class="station-bar">
       <div class="station-text">
         <div class="station-city">Duisburg-Hochfeld</div>
@@ -243,13 +217,12 @@
       </div>
     </div>
 
-    <!-- 3. Orta İçerik Alanı -->
+    <!-- 3. Aksiyon Butonları -->
     <div class="main-content">
       
-      <!-- Aksiyon Butonları -->
       <div class="cards-grid">
         
-        <!-- 1. Route -->
+        <!-- Route -->
         <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="action-card card-route" target="_blank">
           <div class="card-left">
             <div class="icon-box">
@@ -263,7 +236,7 @@
           <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
-        <!-- 2. Termin -->
+        <!-- Termin -->
         <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="action-card card-termin" target="_blank">
           <div class="card-left">
             <div class="icon-box">
@@ -277,7 +250,7 @@
           <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
-        <!-- 3. Telefon -->
+        <!-- Telefon -->
         <a href="tel:+491636814777" class="action-card card-call">
           <div class="card-left">
             <div class="icon-box">
@@ -291,7 +264,7 @@
           <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
-        <!-- 4. WhatsApp -->
+        <!-- WhatsApp -->
         <a href="https://wa.me/491636814777?text=Hallo,%20ich%20habe%20eine%20Frage%20an%20die%20Pr%C3%BCfstelle:%20" class="action-card card-wa" target="_blank">
           <div class="card-left">
             <div class="icon-box">
@@ -307,7 +280,7 @@
 
       </div>
 
-      <!-- 4. Bilgi ve Panoramik Fotoğraf Alanı -->
+      <!-- 4. Bilgi ve Panoramik Fotoğraf -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
@@ -329,24 +302,61 @@
         </div>
       </div>
 
-      <!-- 5. Prüfleistungen Listesi -->
+      <!-- 5. Eksiksiz & Açıklamalı Prüfleistungen Listesi -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           <span data-i18n="servicesTitle">Unsere Prüfleistungen</span>
         </div>
         <ul class="services-list">
-          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv1">Hauptuntersuchung (HU) inkl. UMA (AU)</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv2">Gasanlagenprüfung (GAP / GSP für Gasantriebe)</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv3">Oldtimergutachten (§ 23 StVZO / H-Kennzeichen)</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv4">Taxi & Mietwagen Prüfungen (BOKraft)</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv5">Änderungsabnahmen (§ 19.3 StVZO)</span></li>
+          <li>
+            <div class="srv-head">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-i18n="srv1Head">HU / AU für Pkw, Motorrad & Anhänger</span>
+            </div>
+            <div class="srv-desc" data-i18n="srv1Desc">Gesetzlich vorgeschriebene Haupt- und Abgasuntersuchung.</div>
+          </li>
+          <li>
+            <div class="srv-head">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-i18n="srv2Head">Gasanlagenprüfung (GAP / GSP)</span>
+            </div>
+            <div class="srv-desc" data-i18n="srv2Desc">Wiederkehrende Prüfung für Fahrzeuge mit Flüssiggas (LPG/CNG).</div>
+          </li>
+          <li>
+            <div class="srv-head">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-i18n="srv3Head">Oldtimerbegutachtung (§ 23 StVZO)</span>
+            </div>
+            <div class="srv-desc" data-i18n="srv3Desc">Gutachten zur Einstufung als Oldtimer für das H-Kennzeichen.</div>
+          </li>
+          <li>
+            <div class="srv-head">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-i18n="srv4Head">Taxi, Mietwagen & Busse (BOKraft)</span>
+            </div>
+            <div class="srv-desc" data-i18n="srv4Desc">Sonderprüfungen für Fahrzeuge im Personenverkehr (§ 42 BOKraft).</div>
+          </li>
+          <li>
+            <div class="srv-head">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-i18n="srv5Head">Änderungsabnahmen (§ 19.3 StVZO)</span>
+            </div>
+            <div class="srv-desc" data-i18n="srv5Desc">Begutachtung von Umbauten wie Felgen, Fahrwerk oder Anhängerkupplung.</div>
+          </li>
+          <li>
+            <div class="srv-head">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-i18n="srv6Head">Mängelkarte & Nachprüfung</span>
+            </div>
+            <div class="srv-desc" data-i18n="srv6Desc">Schnelle Nachuntersuchung nach Beseitigung festgestellter Mängel.</div>
+          </li>
         </ul>
       </div>
 
     </div>
 
-    <!-- 6. Alt Footer -->
+    <!-- 6. Footer -->
     <div class="footer-navy" data-i18n="footerText">
       TÜV NORD Mobilität – Offizielle Kfz-Prüfstelle
     </div>
@@ -371,11 +381,18 @@
         uhrLabel: "Uhr",
         pauseLabel: "Mittagspause",
         servicesTitle: "Unsere Prüfleistungen",
-        srv1: "Hauptuntersuchung (HU) inkl. UMA (AU)",
-        srv2: "Gasanlagenprüfung (GAP / GSP für Gasantriebe)",
-        srv3: "Oldtimergutachten (§ 23 StVZO / H-Kennzeichen)",
-        srv4: "Taxi & Mietwagen Prüfungen (BOKraft)",
-        srv5: "Änderungsabnahmen (§ 19.3 StVZO)",
+        srv1Head: "HU / AU für Pkw, Motorrad & Anhänger",
+        srv1Desc: "Gesetzlich vorgeschriebene Haupt- und Abgasuntersuchung.",
+        srv2Head: "Gasanlagenprüfung (GAP / GSP)",
+        srv2Desc: "Wiederkehrende Prüfung für Fahrzeuge mit Flüssiggas (LPG/CNG).",
+        srv3Head: "Oldtimerbegutachtung (§ 23 StVZO)",
+        srv3Desc: "Gutachten zur Einstufung als Oldtimer für das H-Kennzeichen.",
+        srv4Head: "Taxi, Mietwagen & Busse (BOKraft)",
+        srv4Desc: "Sonderprüfungen für Fahrzeuge im Personenverkehr (§ 42 BOKraft).",
+        srv5Head: "Änderungsabnahmen (§ 19.3 StVZO)",
+        srv5Desc: "Begutachtung von Umbauten wie Felgen, Fahrwerk oder Anhängerkupplung.",
+        srv6Head: "Mängelkarte & Nachprüfung",
+        srv6Desc: "Schnelle Nachuntersuchung nach Beseitigung festgestellter Mängel.",
         footerText: "TÜV NORD Mobilität – Offizielle Kfz-Prüfstelle"
       },
       tr: {
@@ -394,11 +411,18 @@
         uhrLabel: "",
         pauseLabel: "Öğle Molası",
         servicesTitle: "Muayene ve Test Hizmetlerimiz",
-        srv1: "Genel Araç Muayenesi (TÜV / HU) ve Egzoz (AU)",
-        srv2: "LPG / Gaz Sistemi Muayenesi (GAP / GSP)",
-        srv3: "Klasik Araç Raporu (H-Plaka / § 23 StVZO)",
-        srv4: "Taksi & Kiralık Araç Muayenesi (BOKraft)",
-        srv5: "Teknik Değişiklik ve Tadilat Onayı (§ 19.3)",
+        srv1Head: "Otomobil, Motosiklet ve Römork (HU/AU)",
+        srv1Desc: "Yasal olarak zorunlu genel araç ve egzoz muayenesi.",
+        srv2Head: "LPG / Gaz Sistemi Muayenesi (GAP / GSP)",
+        srv2Desc: "LPG/CNG gazlı araçlar için periyodik sızdırmazlık ve güvenlik testi.",
+        srv3Head: "Klasik Araç Raporu (H-Plaka / § 23 StVZO)",
+        srv3Desc: "Tarihi ve klasik araçlar için tescil uygunluk raporu.",
+        srv4Head: "Taksi, Kiralık Araç & Minibüs (BOKraft)",
+        srv4Desc: "Yolcu taşıyan ticari araçlar için özel periyodik kontroller.",
+        srv5Head: "Tadilat ve Değişiklik Onayı (§ 19.3)",
+        srv5Desc: "Jant, süspansiyon veya çeki demiri gibi parça montaj onayları.",
+        srv6Head: "Kusur Kartı & Tekrar Muayene (Nachprüfung)",
+        srv6Desc: "Eksikleri giderilen araçlar için hızlı onay ve muayene tekrarı.",
         footerText: "TÜV NORD Mobilität – Resmi Araç Muayene İstasyonu"
       },
       ar: {
@@ -417,11 +441,18 @@
         uhrLabel: "",
         pauseLabel: "استراحة الغداء",
         servicesTitle: "خدمات الفحص الفني المعتمدة",
-        srv1: "الفحص الفني الدوري للسيارات (HU / AU)",
-        srv2: "فحص منظومة الغاز للسيارات (GAP / GSP)",
-        srv3: "فحص وتقييم السيارات الكلاسيكية (H-Plakette)",
-        srv4: "فحص سيارات الأجرة والتأجير (BOKraft)",
-        srv5: "اعتماد التعديلات الفنية على المركبات (§ 19.3)",
+        srv1Head: "فحص السيارات والدراجات والمقطورات (HU/AU)",
+        srv1Desc: "الفحص الفني الدوري الشامل واختبار انبعاثات العادم.",
+        srv2Head: "فحص منظومة الغاز للسيارات (GAP / GSP)",
+        srv2Desc: "الفحص الدوري لأنظمة وقود الغاز (LPG / CNG).",
+        srv3Head: "فحص وتقييم السيارات الكلاسيكية (H-Plakette)",
+        srv3Desc: "تقارير الاعتماد للسيارات التاريخية والكلاسيكية.",
+        srv4Head: "سيارات الأجرة والتأجير والحافلات (BOKraft)",
+        srv4Desc: "فحوصات السلامة المعتمدة لمركبات النقل التجاري.",
+        srv5Head: "اعتماد التعديلات الفنية على المركبات (§ 19.3)",
+        srv5Desc: "فحص واعتماد تعديلات الهيكل والعجلات والإضافات الفنية.",
+        srv6Head: "إعادة الفحص بعد إصلاح الأعطال (Nachprüfung)",
+        srv6Desc: "إعادة فحص سريعة ومعتمدة بعد إصلاح الملاحظات.",
         footerText: "TÜV NORD Mobilität – مركز فحص معتمد رسمياً"
       }
     };
