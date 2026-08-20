@@ -6,261 +6,112 @@
   <title>Kfz-Ingenieurbüro TAM - TÜV NORD Prüfstelle</title>
   <style>
     :root {
-      --dark-blue: #00003c;      /* Pantone 282 C */
-      --electric-blue: #001ED2;  /* Pantone 293 C */
-      --bg-slate: #f1f5f9;
-      --text-main: #0f172a;
-      --text-sub: #475569;
+      --dark-blue: #00003c;
+      --electric-blue: #001ED2;
+      --tuv-navy: #041E42;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: var(--bg-slate); display: flex; justify-content: center; min-height: 100vh; padding: 0; }
+    body { background: #e2e8f0; display: flex; justify-content: center; min-height: 100vh; padding: 0; }
     
-    .container { width: 100%; max-width: 500px; background: #ffffff; box-shadow: 0 12px 36px rgba(0,0,0,0.14); display: flex; flex-direction: column; }
+    .container { width: 100%; max-width: 480px; background: #ffffff; box-shadow: 0 10px 35px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
     
-    /* 1. Üst Hero Banner */
+    /* Üst Tabela */
     .hero-header {
       background: linear-gradient(180deg, var(--dark-blue) 0%, #061e47 100%);
-      padding: 14px 18px 18px 18px;
+      padding: 14px 16px 18px 16px;
       color: #ffffff;
     }
+    .lang-switcher { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 12px; }
+    .lang-btn { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
+    .lang-btn.active { background: #ffffff; color: var(--dark-blue); }
     
-    /* Dil Seçici Butonlar */
-    .lang-switcher {
-      display: flex;
-      justify-content: flex-end;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-    .lang-btn {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .lang-btn.active, .lang-btn:hover {
-      background: #ffffff;
-      color: var(--dark-blue);
-    }
-
-    .top-bar { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      margin-bottom: 14px; 
-    }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
     .logo-area { display: flex; align-items: center; gap: 12px; }
-    .tuv-logo { height: 52px; width: auto; object-fit: contain; }
-    .top-bar-title { 
-      font-size: 24px; 
-      font-weight: 800; 
-      border-left: 2.5px solid rgba(255,255,255,0.35); 
-      padding-left: 12px; 
-      letter-spacing: 0.5px;
-      line-height: 1.1;
-    }
+    .tuv-logo { height: 50px; width: auto; object-fit: contain; }
+    .top-bar-title { font-size: 23px; font-weight: 800; border-left: 2px solid rgba(255,255,255,0.35); padding-left: 12px; }
     
-    .plakette-wrapper {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: transparent;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.35);
-    }
-    .plakette-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.42);
-      display: block;
-    }
+    .plakette-wrapper { width: 54px; height: 54px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .plakette-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.42); display: block; }
 
-    /* İstasyon Bilgi Kutusu */
-    .hero-body {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: rgba(255,255,255,0.08);
-      padding: 12px 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-    .hero-text { flex: 1; text-align: left; }
-    .station-city { font-size: 19px; font-weight: 800; color: #ffffff; line-height: 1.2; }
-    .station-tam { font-size: 14px; font-weight: 600; color: #93c5fd; margin-top: 3px; }
-    
-    .hero-photo-wrap {
-      width: 120px;
-      height: 80px;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1.5px solid rgba(255,255,255,0.3);
-      flex-shrink: 0;
-    }
+    .hero-body { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); }
+    .station-city { font-size: 19px; font-weight: 800; color: #ffffff; }
+    .station-tam { font-size: 13.5px; font-weight: 600; color: #93c5fd; margin-top: 2px; }
+    .hero-photo-wrap { width: 120px; height: 78px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); flex-shrink: 0; }
     .hero-photo { width: 100%; height: 100%; object-fit: cover; }
 
-    /* 2. Orta İçerik Alanı */
-    .main-content { padding: 18px 16px; flex: 1; background: #f8fafc; }
-
-    /* Net ve Birbirinden Ayrışan Butonlar */
-    .cards-grid { display: flex; flex-direction: column; gap: 11px; margin-bottom: 18px; }
+    /* Orta Alan */
+    .main-content { padding: 18px 16px; background: #f8fafc; flex: 1; }
+    
+    /* TASARIM 1: Temiz, Beyaz, Modern Kartlar */
+    .cards-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
     .action-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 8px;
       padding: 13px 15px;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-      transition: transform 0.15s ease;
-      border: 1.5px solid;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      transition: all 0.15s ease;
     }
     .action-card:active { transform: scale(0.99); }
     .card-left { display: flex; align-items: center; gap: 12px; }
-    
-    .icon-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    }
+    .icon-circle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .icon-circle svg { width: 20px; height: 20px; }
     
-    .card-info h4 { font-size: 15.5px; font-weight: 800; line-height: 1.2; }
-    .card-info p { font-size: 12px; margin-top: 2px; font-weight: 600; }
-    .arrow-icon { font-size: 18px; font-weight: bold; }
+    .card-info h4 { font-size: 15px; font-weight: 800; color: var(--text-dark); line-height: 1.2; }
+    .card-info p { font-size: 12px; margin-top: 2px; font-weight: 600; color: var(--text-muted); }
+    .arrow-icon { font-size: 18px; font-weight: bold; color: #94a3b8; }
 
-    /* 1. Buton: Route (Açık Mavi Zemin) */
-    .card-route { background: #eff6ff; border-color: #bfdbfe; }
-    .card-route .icon-circle { background: #ffffff; }
-    .card-route .icon-circle svg { fill: var(--electric-blue); }
-    .card-route h4 { color: #1e3a8a; }
-    .card-route p { color: #2563eb; }
-    .card-route .arrow-icon { color: #1e3a8a; }
-
-    /* 2. Buton: Termin (Kurumsal Nötr Gri Zemin) */
-    .card-termin { background: #f1f5f9; border-color: #cbd5e1; }
-    .card-termin .icon-circle { background: #ffffff; }
+    /* Ayrışan İkon Odakları */
+    .card-route .icon-circle { background: #eff6ff; }
+    .card-route .icon-circle svg { fill: #1d4ed8; }
+    
+    .card-termin .icon-circle { background: #f1f5f9; }
     .card-termin .icon-circle svg { fill: var(--dark-blue); }
-    .card-termin h4 { color: #0f172a; }
-    .card-termin p { color: #475569; }
-    .card-termin .arrow-icon { color: #0f172a; }
-
-    /* 3. Buton: Telefon (Sıcak Açık Kehribar/Kum Zemin - Yeşille Karışmaz) */
-    .card-call { background: #fefce8; border-color: #fef08a; }
-    .card-call .icon-circle { background: #ffffff; }
-    .card-call .icon-circle svg { fill: #854d0e; }
-    .card-call h4 { color: #713f12; }
-    .card-call p { color: #a16207; }
-    .card-call .arrow-icon { color: #713f12; }
-
-    /* 4. Buton: WhatsApp (Resmi Canlı Yeşil) */
-    .card-whatsapp { background: #ecfdf5; border-color: #a7f3d0; border-left: 4px solid #10b981; }
-    .card-whatsapp .icon-circle { background: #10b981; }
+    
+    .card-call .icon-circle { background: #f0fdf4; }
+    .card-call .icon-circle svg { fill: #15803d; }
+    
+    .card-whatsapp .icon-circle { background: #25D366; }
     .card-whatsapp .icon-circle svg { fill: #ffffff; }
-    .card-whatsapp h4 { color: #064e3b; }
-    .card-whatsapp p { color: #047857; }
-    .card-whatsapp .arrow-icon { color: #064e3b; }
 
-    /* Ortak Bilgi Kartları */
-    .section-card {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 14px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }
-    .section-title {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--dark-blue);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1.5px solid #e2e8f0;
-      padding-bottom: 6px;
-    }
+    /* Bilgi ve Hizmet Kutuları */
+    .section-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 15px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+    .section-title { font-size: 14.5px; font-weight: 800; color: var(--dark-blue); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 6px; }
     .section-title svg { width: 17px; height: 17px; fill: var(--dark-blue); }
+    .info-grid { display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: #1e293b; font-weight: 600; line-height: 1.5; }
+    .address-highlight { color: var(--electric-blue); font-weight: 700; }
 
-    .info-grid { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #1e293b; font-weight: 600; line-height: 1.5; }
-    .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
-
-    /* Hizmet Listesi */
     .services-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .services-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13.5px;
-      font-weight: 700;
-      color: #1e293b;
-      background: #f8fafc;
-      padding: 8px 10px;
-      border-radius: 5px;
-      border-left: 3.5px solid var(--electric-blue);
-    }
+    .services-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #1e293b; background: #f8fafc; padding: 8px 10px; border-radius: 5px; border-left: 3.5px solid var(--electric-blue); }
     .services-list li svg { width: 14px; height: 14px; fill: #16a34a; flex-shrink: 0; }
 
-    /* Alt Footer */
-    .footer-navy {
-      background-color: var(--dark-blue);
-      padding: 14px;
-      color: #ffffff;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-    }
-
-    /* Arapça Dilinde Sağdan Sola Düzen (RTL) */
-    [dir="rtl"] .top-bar-title { border-left: none; border-right: 2.5px solid rgba(255,255,255,0.35); padding-left: 0; padding-right: 12px; }
-    [dir="rtl"] .services-list li { border-left: none; border-right: 3.5px solid var(--electric-blue); }
-    [dir="rtl"] .card-whatsapp { border-left: 1.5px solid #a7f3d0; border-right: 4px solid #10b981; }
-    [dir="rtl"] .arrow-icon { transform: rotate(180deg); }
-    [dir="rtl"] .hero-text { text-align: right; }
+    .footer-navy { background-color: var(--dark-blue); padding: 14px; color: #ffffff; text-align: center; font-size: 12px; font-weight: 700; }
   </style>
 </head>
 <body>
 
   <div class="container" id="pageContainer">
-    
-    <!-- 1. Üst Hero Banner -->
     <div class="hero-header">
-      <!-- 3 Dilli Seçim Butonları -->
       <div class="lang-switcher">
         <button class="lang-btn active" onclick="setLanguage('de')">DE 🇩🇪</button>
         <button class="lang-btn" onclick="setLanguage('tr')">TR 🇹🇷</button>
         <button class="lang-btn" onclick="setLanguage('ar')">AR 🇸🇦</button>
       </div>
-
       <div class="top-bar">
         <div class="logo-area">
           <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
           <div class="top-bar-title" data-i18n="topTitle">Kfz-Prüfstelle</div>
         </div>
-
         <div class="plakette-wrapper">
           <img src="plakett.png" alt="HU Plakette" class="plakette-img">
         </div>
       </div>
-
-      <!-- İstasyon ve Fotoğraf -->
       <div class="hero-body">
         <div class="hero-text">
           <div class="station-city">Duisburg-Hochfeld</div>
@@ -272,13 +123,8 @@
       </div>
     </div>
 
-    <!-- Orta İçerik -->
     <div class="main-content">
-      
-      <!-- Aksiyon Butonları -->
       <div class="cards-grid">
-        
-        <!-- 1. Route -->
         <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="action-card card-route" target="_blank">
           <div class="card-left">
             <div class="icon-circle">
@@ -292,7 +138,6 @@
           <div class="arrow-icon">›</div>
         </a>
 
-        <!-- 2. Termin (Temiz & Düzeltilmiş Açıklama) -->
         <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="action-card card-termin" target="_blank">
           <div class="card-left">
             <div class="icon-circle">
@@ -306,7 +151,6 @@
           <div class="arrow-icon">›</div>
         </a>
 
-        <!-- 3. Telefon Arama -->
         <a href="tel:+491636814777" class="action-card card-call">
           <div class="card-left">
             <div class="icon-circle">
@@ -320,7 +164,6 @@
           <div class="arrow-icon">›</div>
         </a>
 
-        <!-- 4. WhatsApp Soru Butonu -->
         <a href="https://wa.me/491636814777?text=Hallo,%20ich%20habe%20eine%20Frage%20an%20die%20Pr%C3%BCfstelle:%20" class="action-card card-whatsapp" target="_blank">
           <div class="card-left">
             <div class="icon-circle">
@@ -333,10 +176,8 @@
           </div>
           <div class="arrow-icon">›</div>
         </a>
-
       </div>
 
-      <!-- Açılış Saatleri & Adres -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
@@ -353,46 +194,26 @@
         </div>
       </div>
 
-      <!-- Hizmet Listesi -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           <span data-i18n="servicesTitle">Unsere Prüfleistungen</span>
         </div>
         <ul class="services-list">
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <span data-i18n="srv1">Hauptuntersuchung (HU) inkl. UMA (AU)</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <span data-i18n="srv2">Gasanlagenprüfung (GAP / GSP für Gasantriebe)</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <span data-i18n="srv3">Oldtimergutachten (§ 23 StVZO / H-Kennzeichen)</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <span data-i18n="srv4">Taxi & Mietwagen Prüfungen (BOKraft)</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <span data-i18n="srv5">Änderungsabnahmen (§ 19.3 StVZO)</span>
-          </li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv1">Hauptuntersuchung (HU) inkl. UMA (AU)</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv2">Gasanlagenprüfung (GAP / GSP für Gasantriebe)</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv3">Oldtimergutachten (§ 23 StVZO / H-Kennzeichen)</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv4">Taxi & Mietwagen Prüfungen (BOKraft)</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span data-i18n="srv5">Änderungsabnahmen (§ 19.3 StVZO)</span></li>
         </ul>
       </div>
-
     </div>
 
-    <!-- Alt Footer -->
     <div class="footer-navy" data-i18n="footerText">
       TÜV NORD Mobilität – Offizielle Kfz-Prüfstelle
     </div>
-
   </div>
 
-  <!-- Otomatik 3 Dilli Çeviri Motoru -->
   <script>
     const translations = {
       de: {
@@ -467,11 +288,9 @@
     };
 
     function setLanguage(lang) {
-      // Aktif Buton Görünümü
       document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
 
-      // Sayfa Yönü (Arapça için RTL)
       const container = document.getElementById('pageContainer');
       if (lang === 'ar') {
         container.setAttribute('dir', 'rtl');
@@ -479,7 +298,6 @@
         container.removeAttribute('dir');
       }
 
-      // Metinleri Değiştir
       const data = translations[lang];
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -489,6 +307,5 @@
       });
     }
   </script>
-
 </body>
 </html>
