@@ -11,7 +11,7 @@
       --text-title: #0a192f;
       --text-muted: #5a6e85;
       
-      /* Net ve Doygun İkon Kutusu Renkleri */
+      /* Net İkon Kutusu Renkleri */
       --icon-route: #002f6c;
       --icon-termin: #041E42;
       --icon-call: #0d6e43;
@@ -22,34 +22,7 @@
     
     .container { width: 100%; max-width: 480px; background: #ffffff; box-shadow: 0 14px 40px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
     
-    /* 1. EN ÜST BEYAZ ALAN (Dil Seçim Bandı) */
-    .top-utility-bar {
-      background: #ffffff;
-      padding: 8px 16px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .lang-switcher { display: flex; gap: 6px; }
-    .lang-btn {
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      color: #334155;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 11.5px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .lang-btn.active, .lang-btn:hover {
-      background: var(--dark-blue);
-      border-color: var(--dark-blue);
-      color: #ffffff;
-    }
-
-    /* 2. BÜYÜTÜLMÜŞ VE SAF TÜV NORD TABELASI */
+    /* 1. EN ÜSTTE DOĞRUDAN SAF RESMİ TABELA */
     .hero-header {
       background-color: var(--dark-blue);
       padding: 16px 18px;
@@ -59,10 +32,8 @@
     .top-bar { display: flex; justify-content: space-between; align-items: center; }
     .logo-area { display: flex; align-items: center; gap: 14px; }
     
-    /* Büyütülen TÜV NORD Logosu */
     .tuv-logo { height: 60px; width: auto; object-fit: contain; }
     
-    /* Büyütülen ve Vurgulanan Tabela Başlığı */
     .top-bar-title { 
       font-size: 26px; 
       font-weight: 800; 
@@ -72,7 +43,6 @@
       line-height: 1.1;
     }
     
-    /* Büyütülen HU-Plakette */
     .plakette-wrapper { 
       width: 58px; 
       height: 58px; 
@@ -86,19 +56,54 @@
     }
     .plakette-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.42); display: block; }
 
-    /* 3. İSTASYON BAŞLIĞI */
-    .station-info-header {
-      padding: 20px 16px 8px 16px;
-      text-align: center;
-      background: #ffffff;
+    /* 2. SOLDA BAŞLIK & SAĞDA DİKEY DİL BUTONLARI (Hafif Renkli Şık Zemin) */
+    .station-bar {
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
     }
-    .station-city { font-size: 24px; font-weight: 900; color: var(--electric-blue); letter-spacing: -0.2px; }
-    .station-tam { font-size: 15.5px; font-weight: 700; color: #334155; margin-top: 3px; }
+    
+    .station-text {
+      text-align: left;
+      flex: 1;
+    }
+    .station-city { font-size: 22px; font-weight: 900; color: var(--electric-blue); letter-spacing: -0.2px; line-height: 1.2; }
+    .station-tam { font-size: 14.5px; font-weight: 700; color: #334155; margin-top: 3px; }
 
-    /* 4. ORTA İÇERİK ALANI */
-    .main-content { padding: 14px 16px 20px 16px; background: #ffffff; flex: 1; }
+    /* Dikey (Alt Alta) Sıralı Dil Butonları */
+    .lang-switcher-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+      min-width: 62px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--dark-blue);
+      border-color: var(--dark-blue);
+      color: #ffffff;
+    }
 
-    /* KARE İKONLU NET AKSİYON BUTONLARI */
+    /* 3. ORTA İÇERİK ALANI */
+    .main-content { padding: 16px 16px 20px 16px; background: #ffffff; flex: 1; }
+
+    /* KARE İKONLU AKSİYON BUTONLARI */
     .cards-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
     .action-card {
       background: #ffffff;
@@ -137,7 +142,7 @@
     .card-info p { font-size: 12px; margin-top: 2px; font-weight: 500; color: var(--text-muted); }
     .arrow-svg { width: 16px; height: 16px; fill: #94a3b8; flex-shrink: 0; }
 
-    /* 5. AÇILIŞ SAATLERİ & FOTOĞRAFLI İSTASYON VİTRİNİ */
+    /* 4. AÇILIŞ SAATLERİ & FOTOĞRAFLI İSTASYON VİTRİNİ */
     .section-card {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
@@ -158,7 +163,6 @@
     }
     .section-title svg { width: 18px; height: 18px; fill: var(--dark-blue); }
 
-    /* Panoramik İstasyon Fotoğraf Alanı */
     .station-photo-banner {
       width: 100%;
       height: 150px;
@@ -172,7 +176,7 @@
     .info-grid { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: #1e293b; font-weight: 600; line-height: 1.5; }
     .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
 
-    /* 6. PRÜFLEISTUNGEN LİSTESİ */
+    /* 5. PRÜFLEISTUNGEN LİSTESİ */
     .services-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
     .services-list li {
       display: flex;
@@ -189,7 +193,7 @@
     }
     .services-list li svg { width: 14px; height: 14px; fill: #16a34a; flex-shrink: 0; }
 
-    /* 7. ALT FOOTER */
+    /* 6. ALT FOOTER */
     .footer-navy {
       background-color: var(--dark-blue);
       padding: 14px;
@@ -201,7 +205,7 @@
     }
 
     /* Arapça RTL */
-    [dir="rtl"] .top-utility-bar { justify-content: flex-start; }
+    [dir="rtl"] .station-text { text-align: right; }
     [dir="rtl"] .top-bar-title { border-left: none; border-right: 2.5px solid rgba(255,255,255,0.4); padding-left: 0; padding-right: 14px; }
     [dir="rtl"] .services-list li { border-left: 1px solid #e2e8f0; border-right: 3.5px solid var(--electric-blue); }
     [dir="rtl"] .arrow-svg { transform: rotate(180deg); }
@@ -211,16 +215,7 @@
 
   <div class="container" id="pageContainer">
     
-    <!-- 1. En Üst Beyaz Dil Seçim Alanı -->
-    <div class="top-utility-bar">
-      <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLanguage('de')">DE 🇩🇪</button>
-        <button class="lang-btn" onclick="setLanguage('tr')">TR 🇹🇷</button>
-        <button class="lang-btn" onclick="setLanguage('ar')">AR 🇸🇦</button>
-      </div>
-    </div>
-
-    <!-- 2. Büyütülmüş ve Saf Resmi Tabela -->
+    <!-- 1. En Üstte Doğrudan TÜV NORD Resmi Tabelası -->
     <div class="hero-header">
       <div class="top-bar">
         <div class="logo-area">
@@ -234,13 +229,21 @@
       </div>
     </div>
 
-    <!-- 3. İstasyon Başlığı -->
-    <div class="station-info-header">
-      <div class="station-city">Duisburg-Hochfeld</div>
-      <div class="station-tam">Kfz-Ingenieurbüro TAM</div>
+    <!-- 2. Sola Çekilen İstasyon Başlığı & Sağda Dikey Dil Butonları (Hafif Renkli Zemin) -->
+    <div class="station-bar">
+      <div class="station-text">
+        <div class="station-city">Duisburg-Hochfeld</div>
+        <div class="station-tam">Kfz-Ingenieurbüro TAM</div>
+      </div>
+
+      <div class="lang-switcher-vertical">
+        <button class="lang-btn active" onclick="setLanguage('de')">DE 🇩🇪</button>
+        <button class="lang-btn" onclick="setLanguage('tr')">TR 🇹🇷</button>
+        <button class="lang-btn" onclick="setLanguage('ar')">AR 🇸🇦</button>
+      </div>
     </div>
 
-    <!-- 4. Orta İçerik Alanı -->
+    <!-- 3. Orta İçerik Alanı -->
     <div class="main-content">
       
       <!-- Aksiyon Butonları -->
@@ -304,7 +307,7 @@
 
       </div>
 
-      <!-- 5. Bilgi ve Panoramik Fotoğraf Alanı -->
+      <!-- 4. Bilgi ve Panoramik Fotoğraf Alanı -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
@@ -326,7 +329,7 @@
         </div>
       </div>
 
-      <!-- 6. Prüfleistungen Listesi -->
+      <!-- 5. Prüfleistungen Listesi -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -343,7 +346,7 @@
 
     </div>
 
-    <!-- 7. Alt Footer -->
+    <!-- 6. Alt Footer -->
     <div class="footer-navy" data-i18n="footerText">
       TÜV NORD Mobilität – Offizielle Kfz-Prüfstelle
     </div>
