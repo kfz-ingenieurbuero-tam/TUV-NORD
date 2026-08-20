@@ -54,7 +54,7 @@
     }
     .plakette-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.42); display: block; }
 
-    /* 2. Sola Yaslı İstasyon & Sağda Dikey Dil Butonları */
+    /* 2. İstasyon Başlığı & Dikey Dil Butonları */
     .station-bar {
       background: #f1f5f9;
       border-bottom: 1px solid #e2e8f0;
@@ -88,7 +88,7 @@
     /* 3. Orta İçerik */
     .main-content { padding: 16px 16px 20px 16px; background: #ffffff; flex: 1; }
 
-    /* Butonlar */
+    /* Aksiyon Butonları */
     .cards-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
     .action-card {
       background: #ffffff;
@@ -118,7 +118,24 @@
     .card-info p { font-size: 12px; margin-top: 2px; font-weight: 500; color: var(--text-muted); }
     .arrow-svg { width: 16px; height: 16px; fill: #94a3b8; flex-shrink: 0; }
 
-    /* 4. Açılış Saatleri & Panoramik İstasyon Fotoğrafı */
+    /* BUTONLAR ARASINDAKİ ÖZEL 'AUCH OHNE TERMIN' BİLGİ ŞERİDİ */
+    .no-appointment-banner {
+      background: #ecfdf5;
+      border: 1px dashed #10b981;
+      border-radius: 6px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #065f46;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 2px 0;
+    }
+    .no-appointment-banner svg { width: 16px; height: 16px; fill: #10b981; flex-shrink: 0; }
+
+    /* 4. Açılış Saatleri & Panoramik Fotoğraf */
     .section-card {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
@@ -152,7 +169,7 @@
     .info-grid { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: #1e293b; font-weight: 600; line-height: 1.5; }
     .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
 
-    /* 5. GENİŞLETİLMİŞ VE AÇIKLAMALI HİZMET LİSTESİ */
+    /* 5. Prüfleistungen Listesi */
     .services-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .services-list li {
       background: #ffffff;
@@ -217,7 +234,7 @@
       </div>
     </div>
 
-    <!-- 3. Aksiyon Butonları -->
+    <!-- 3. Aksiyon Butonları & Araya Eklenen 'Auch ohne Termin' Şeridi -->
     <div class="main-content">
       
       <div class="cards-grid">
@@ -249,6 +266,12 @@
           </div>
           <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
+
+        <!-- Araya Eklenen 'Auch ohne Termin möglich' Şeridi -->
+        <div class="no-appointment-banner">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span data-i18n="bannerNoTermin">Auch ohne Termin möglich – einfach vorbeikommen!</span>
+        </div>
 
         <!-- Telefon -->
         <a href="tel:+491636814777" class="action-card card-call">
@@ -302,7 +325,7 @@
         </div>
       </div>
 
-      <!-- 5. Eksiksiz & Açıklamalı Prüfleistungen Listesi -->
+      <!-- 5. Prüfleistungen Listesi (CNG kaldırıldı, Yalnızca LPG + Feinstaubplakette Eklendi) -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -319,9 +342,9 @@
           <li>
             <div class="srv-head">
               <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv2Head">Gasanlagenprüfung (GAP / GSP)</span>
+              <span data-i18n="srv2Head">Gasanlagenprüfung (GAP / GSP für LPG)</span>
             </div>
-            <div class="srv-desc" data-i18n="srv2Desc">Wiederkehrende Prüfung für Fahrzeuge mit Flüssiggas (LPG/CNG).</div>
+            <div class="srv-desc" data-i18n="srv2Desc">Wiederkehrende Dichtheits- und Sicherheitsprüfung für Autogas (LPG).</div>
           </li>
           <li>
             <div class="srv-head">
@@ -351,6 +374,13 @@
             </div>
             <div class="srv-desc" data-i18n="srv6Desc">Schnelle Nachuntersuchung nach Beseitigung festgestellter Mängel.</div>
           </li>
+          <li>
+            <div class="srv-head">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-i18n="srv7Head">Feinstaubplakette (Umweltplakette)</span>
+            </div>
+            <div class="srv-desc" data-i18n="srv7Desc">Ausstellung der grünen Umweltplakette für Umweltzonen direkt vor Ort.</div>
+          </li>
         </ul>
       </div>
 
@@ -371,6 +401,7 @@
         btnRouteSub: "Direkt zur Prüfstelle navigieren",
         btnTerminTitle: "Online-Termin buchen",
         btnTerminSub: "Wunschtermin online vereinbaren",
+        bannerNoTermin: "Auch ohne Termin möglich – einfach vorbeikommen!",
         btnCallTitle: "Tel: +49 163 68 14 777",
         btnCallSub: "Jetzt direkt anrufen",
         btnWaTitle: "WhatsApp Chat",
@@ -383,8 +414,8 @@
         servicesTitle: "Unsere Prüfleistungen",
         srv1Head: "HU / AU für Pkw, Motorrad & Anhänger",
         srv1Desc: "Gesetzlich vorgeschriebene Haupt- und Abgasuntersuchung.",
-        srv2Head: "Gasanlagenprüfung (GAP / GSP)",
-        srv2Desc: "Wiederkehrende Prüfung für Fahrzeuge mit Flüssiggas (LPG/CNG).",
+        srv2Head: "Gasanlagenprüfung (GAP / GSP für LPG)",
+        srv2Desc: "Wiederkehrende Dichtheits- und Sicherheitsprüfung für Autogas (LPG).",
         srv3Head: "Oldtimerbegutachtung (§ 23 StVZO)",
         srv3Desc: "Gutachten zur Einstufung als Oldtimer für das H-Kennzeichen.",
         srv4Head: "Taxi, Mietwagen & Busse (BOKraft)",
@@ -393,6 +424,8 @@
         srv5Desc: "Begutachtung von Umbauten wie Felgen, Fahrwerk oder Anhängerkupplung.",
         srv6Head: "Mängelkarte & Nachprüfung",
         srv6Desc: "Schnelle Nachuntersuchung nach Beseitigung festgestellter Mängel.",
+        srv7Head: "Feinstaubplakette (Umweltplakette)",
+        srv7Desc: "Ausstellung der grünen Umweltplakette für Umweltzonen direkt vor Ort.",
         footerText: "TÜV NORD Mobilität – Offizielle Kfz-Prüfstelle"
       },
       tr: {
@@ -401,6 +434,7 @@
         btnRouteSub: "İstasyona doğrudan navigasyon başlat",
         btnTerminTitle: "Online Randevu Al",
         btnTerminSub: "İstediğiniz randevuyu online oluşturun",
+        bannerNoTermin: "Randevusuz da gelebilirsiniz – bekleriz!",
         btnCallTitle: "Tel: +49 163 68 14 777",
         btnCallSub: "Hemen doğrudan arayın",
         btnWaTitle: "WhatsApp Destek",
@@ -413,8 +447,8 @@
         servicesTitle: "Muayene ve Test Hizmetlerimiz",
         srv1Head: "Otomobil, Motosiklet ve Römork (HU/AU)",
         srv1Desc: "Yasal olarak zorunlu genel araç ve egzoz muayenesi.",
-        srv2Head: "LPG / Gaz Sistemi Muayenesi (GAP / GSP)",
-        srv2Desc: "LPG/CNG gazlı araçlar için periyodik sızdırmazlık ve güvenlik testi.",
+        srv2Head: "LPG / Otogaz Sistemi Muayenesi (GAP / GSP)",
+        srv2Desc: "LPG otogazlı araçlar için periyodik sızdırmazlık ve güvenlik testi.",
         srv3Head: "Klasik Araç Raporu (H-Plaka / § 23 StVZO)",
         srv3Desc: "Tarihi ve klasik araçlar için tescil uygunluk raporu.",
         srv4Head: "Taksi, Kiralık Araç & Minibüs (BOKraft)",
@@ -423,6 +457,8 @@
         srv5Desc: "Jant, süspansiyon veya çeki demiri gibi parça montaj onayları.",
         srv6Head: "Kusur Kartı & Tekrar Muayene (Nachprüfung)",
         srv6Desc: "Eksikleri giderilen araçlar için hızlı onay ve muayene tekrarı.",
+        srv7Head: "Yeşil Çevre Pulu (Umweltplakette)",
+        srv7Desc: "Çevre koruma bölgeleri için resmi yeşil pul anında teslim edilir.",
         footerText: "TÜV NORD Mobilität – Resmi Araç Muayene İstasyonu"
       },
       ar: {
@@ -431,6 +467,7 @@
         btnRouteSub: "التوجه مباشرة إلى المركز عبر الخريطة",
         btnTerminTitle: "حجز موعد عبر الإنترنت",
         btnTerminSub: "احجز موعدك المفضل بسهولة",
+        bannerNoTermin: "يمكنك القدوم أيضاً بدون موعد مسبق!",
         btnCallTitle: "هاتف: 777 14 68 163 49+",
         btnCallSub: "اتصل بنا مباشرة الآن",
         btnWaTitle: "محادثة واتساب",
@@ -443,8 +480,8 @@
         servicesTitle: "خدمات الفحص الفني المعتمدة",
         srv1Head: "فحص السيارات والدراجات والمقطورات (HU/AU)",
         srv1Desc: "الفحص الفني الدوري الشامل واختبار انبعاثات العادم.",
-        srv2Head: "فحص منظومة الغاز للسيارات (GAP / GSP)",
-        srv2Desc: "الفحص الدوري لأنظمة وقود الغاز (LPG / CNG).",
+        srv2Head: "فحص منظومة الغاز للسيارات (LPG)",
+        srv2Desc: "الفحص الدوري لأنظمة وقود الغاز المسال (LPG).",
         srv3Head: "فحص وتقييم السيارات الكلاسيكية (H-Plakette)",
         srv3Desc: "تقارير الاعتماد للسيارات التاريخية والكلاسيكية.",
         srv4Head: "سيارات الأجرة والتأجير والحافلات (BOKraft)",
@@ -453,6 +490,8 @@
         srv5Desc: "فحص واعتماد تعديلات الهيكل والعجلات والإضافات الفنية.",
         srv6Head: "إعادة الفحص بعد إصلاح الأعطال (Nachprüfung)",
         srv6Desc: "إعادة فحص سريعة ومعتمدة بعد إصلاح الملاحظات.",
+        srv7Head: "ملصق البيئة الأخضر (Umweltplakette)",
+        srv7Desc: "إصدار ملصق الانبعاثات البيئي الأخضر مباشرة في المركز.",
         footerText: "TÜV NORD Mobilität – مركز فحص معتمد رسمياً"
       }
     };
