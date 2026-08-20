@@ -8,24 +8,28 @@
     :root {
       --dark-blue: #00003c;      /* Pantone 282 C */
       --electric-blue: #001ED2;  /* Pantone 293 C */
-      --btn-route: #003E92;      /* Kurumsal Tok Mavi */
-      --btn-termin: #041E42;     /* Derin Tok Lacivert */
-      --btn-call: #1e293b;       /* Asil Koyu Antrasit */
-      --btn-wa: #16a34a;         /* Canlı Resmi WhatsApp Yeşili */
+      --text-title: #0a192f;
+      --text-muted: #5a6e85;
+      
+      /* Sağdaki Şablonun İkon Renkleri */
+      --icon-route: #002f6c;
+      --icon-termin: #041E42;
+      --icon-call: #0d6e43;
+      --icon-wa: #22a05b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: #e2e8f0; display: flex; justify-content: center; min-height: 100vh; padding: 0; }
+    body { background: #e9eef5; display: flex; justify-content: center; min-height: 100vh; padding: 0; }
     
-    .container { width: 100%; max-width: 480px; background: #ffffff; box-shadow: 0 12px 40px rgba(0,0,0,0.15); display: flex; flex-direction: column; }
+    .container { width: 100%; max-width: 490px; background: #ffffff; box-shadow: 0 14px 40px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
     
     /* 1. Üst Hero Banner */
     .hero-header {
       background: linear-gradient(180deg, var(--dark-blue) 0%, #061e47 100%);
-      padding: 14px 16px 18px 16px;
+      padding: 14px 18px 18px 18px;
       color: #ffffff;
     }
     
-    /* Dil Seçim Butonları */
+    /* Dil Butonları */
     .lang-switcher { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 12px; }
     .lang-btn { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 11.5px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
     .lang-btn.active, .lang-btn:hover { background: #ffffff; color: var(--dark-blue); }
@@ -47,53 +51,57 @@
     /* 2. Orta İçerik Alanı */
     .main-content { padding: 18px 16px; background: #f8fafc; flex: 1; }
 
-    /* TASARIM 2: Tam Dolgulu & Yüksek Kontrastlı Butonlar */
-    .cards-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    /* SAĞDAKİ GÖRSELİN BİREBİR KART YAPISI */
+    .cards-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
     .action-card {
-      border-radius: 8px;
-      padding: 13px 16px;
+      background: #ffffff;
+      border: 1px solid #e5eaf2;
+      border-radius: 12px;
+      padding: 12px 16px;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-      transition: transform 0.15s ease, filter 0.15s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
     .action-card:active { transform: scale(0.99); }
-    .action-card:hover { filter: brightness(1.08); }
+    .action-card:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.07); }
+    
     .card-left { display: flex; align-items: center; gap: 14px; }
     
-    .icon-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+    /* Kare / Yumuşak Köşeli Koyu Dolgulu İkon Kutusu */
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.18);
     }
-    .icon-circle svg { width: 20px; height: 20px; fill: #ffffff; }
+    .icon-box svg { width: 24px; height: 24px; fill: #ffffff; }
     
-    /* Tüm Yazılar Beyaz ve Net */
-    .card-info h4 { font-size: 15.5px; font-weight: 800; color: #ffffff; line-height: 1.2; }
-    .card-info p { font-size: 12px; margin-top: 2px; font-weight: 600; color: rgba(255,255,255,0.85); }
-    .arrow-icon { font-size: 18px; font-weight: bold; color: rgba(255,255,255,0.7); }
+    /* İkon Renkleri */
+    .card-route .icon-box { background: var(--icon-route); }
+    .card-termin .icon-box { background: var(--icon-termin); }
+    .card-call .icon-box { background: var(--icon-call); }
+    .card-wa .icon-box { background: var(--icon-wa); }
 
-    /* Zengin Tok Renk Eşleşmeleri */
-    .card-route { background: var(--btn-route); }
-    .card-termin { background: var(--btn-termin); }
-    .card-call { background: var(--btn-call); }
-    .card-whatsapp { background: var(--btn-wa); }
+    .card-info h4 { font-size: 15.5px; font-weight: 800; color: var(--text-title); line-height: 1.2; }
+    .card-info p { font-size: 12.5px; margin-top: 3px; font-weight: 500; color: var(--text-muted); }
+    
+    /* İnce Zarif Ok İkonu */
+    .arrow-svg { width: 16px; height: 16px; fill: #6b7c96; flex-shrink: 0; }
 
-    /* Bilgi ve Hizmet Kartları */
+    /* Alt Bilgi Kartları */
     .section-card {
       background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 15px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
       margin-bottom: 14px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
     }
     .section-title {
       font-size: 14.5px;
@@ -103,10 +111,10 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      border-bottom: 1.5px solid #e2e8f0;
+      border-bottom: 1.5px solid #edf2f7;
       padding-bottom: 6px;
     }
-    .section-title svg { width: 17px; height: 17px; fill: var(--dark-blue); }
+    .section-title svg { width: 18px; height: 18px; fill: var(--dark-blue); }
 
     .info-grid { display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: #1e293b; font-weight: 600; line-height: 1.5; }
     .address-highlight { color: var(--electric-blue); font-weight: 700; }
@@ -120,8 +128,8 @@
       font-weight: 700;
       color: #1e293b;
       background: #f8fafc;
-      padding: 8px 10px;
-      border-radius: 5px;
+      padding: 8px 12px;
+      border-radius: 6px;
       border-left: 3.5px solid var(--electric-blue);
     }
     .services-list li svg { width: 14px; height: 14px; fill: #16a34a; flex-shrink: 0; }
@@ -137,10 +145,10 @@
       letter-spacing: 0.4px;
     }
 
-    /* Arapça RTL Desteği */
+    /* Arapça RTL */
     [dir="rtl"] .top-bar-title { border-left: none; border-right: 2px solid rgba(255,255,255,0.35); padding-left: 0; padding-right: 12px; }
     [dir="rtl"] .services-list li { border-left: none; border-right: 3.5px solid var(--electric-blue); }
-    [dir="rtl"] .arrow-icon { transform: rotate(180deg); }
+    [dir="rtl"] .arrow-svg { transform: rotate(180deg); }
     [dir="rtl"] .hero-text { text-align: right; }
   </style>
 </head>
@@ -178,16 +186,16 @@
       </div>
     </div>
 
-    <!-- 2. Orta Alan -->
+    <!-- 2. Orta İçerik -->
     <div class="main-content">
       
-      <!-- Tok Renkli Aksiyon Butonları -->
+      <!-- SAĞDAKİ RESMİN BİREBİR KARTLARI -->
       <div class="cards-grid">
         
-        <!-- 1. Route (Mavi) -->
+        <!-- 1. Route -->
         <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="action-card card-route" target="_blank">
           <div class="card-left">
-            <div class="icon-circle">
+            <div class="icon-box">
               <svg viewBox="0 0 24 24"><path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/></svg>
             </div>
             <div class="card-info">
@@ -195,13 +203,13 @@
               <p data-i18n="btnRouteSub">Direkt zur Prüfstelle navigieren</p>
             </div>
           </div>
-          <div class="arrow-icon">›</div>
+          <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
-        <!-- 2. Termin (Koyu Lacivert) -->
+        <!-- 2. Termin -->
         <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="action-card card-termin" target="_blank">
           <div class="card-left">
-            <div class="icon-circle">
+            <div class="icon-box">
               <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
             </div>
             <div class="card-info">
@@ -209,13 +217,13 @@
               <p data-i18n="btnTerminSub">Wunschtermin online vereinbaren</p>
             </div>
           </div>
-          <div class="arrow-icon">›</div>
+          <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
-        <!-- 3. Telefon (Koyu Antrasit) -->
+        <!-- 3. Telefon -->
         <a href="tel:+491636814777" class="action-card card-call">
           <div class="card-left">
-            <div class="icon-circle">
+            <div class="icon-box">
               <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             </div>
             <div class="card-info">
@@ -223,13 +231,13 @@
               <p data-i18n="btnCallSub">Jetzt direkt anrufen</p>
             </div>
           </div>
-          <div class="arrow-icon">›</div>
+          <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
-        <!-- 4. WhatsApp (Resmi Yeşil) -->
-        <a href="https://wa.me/491636814777?text=Hallo,%20ich%20habe%20eine%20Frage%20an%20die%20Pr%C3%BCfstelle:%20" class="action-card card-whatsapp" target="_blank">
+        <!-- 4. WhatsApp -->
+        <a href="https://wa.me/491636814777?text=Hallo,%20ich%20habe%20eine%20Frage%20an%20die%20Pr%C3%BCfstelle:%20" class="action-card card-wa" target="_blank">
           <div class="card-left">
-            <div class="icon-circle">
+            <div class="icon-box">
               <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.39 1.24-1.93 1.32-.51.08-1.16.11-3.37-.8-2.67-1.11-4.38-3.83-4.51-4.01-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .36 0 .52.01.17.01.39-.06.61.47.23.55.77 1.88.84 2.02.07.14.11.31.02.5-.09.18-.14.3-.28.47-.14.16-.29.37-.42.49-.14.14-.29.3-.13.57.17.28.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.31 1.42.29.14.45.12.62-.07.17-.19.73-.85.92-1.14.2-.29.39-.24.66-.14.27.1 1.7.8 1.99.94.29.15.49.22.56.34.07.13.07.74-.17 1.41z"/></svg>
             </div>
             <div class="card-info">
@@ -237,7 +245,7 @@
               <p data-i18n="btnWaSub">Fragen unkompliziert per Chat stellen</p>
             </div>
           </div>
-          <div class="arrow-icon">›</div>
+          <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
       </div>
@@ -283,7 +291,6 @@
 
   </div>
 
-  <!-- Çok Dilli Çeviri Motoru -->
   <script>
     const translations = {
       de: {
