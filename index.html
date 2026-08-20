@@ -9,26 +9,15 @@
       --dark-blue: #00003c;      /* Pantone 282 C */
       --electric-blue: #001ED2;  /* Pantone 293 C */
       --bg-slate: #f1f5f9;
-      
-      /* Doygun ve Ayrışan Buton Renkleri */
-      --btn-maps-bg: #dbeafe;
-      --btn-maps-border: #93c5fd;
-      --btn-maps-text: #1e40af;
-      
-      --btn-termin-bg: #e2e8f0;
-      --btn-termin-border: #94a3b8;
-      --btn-termin-text: #0f172a;
-      
-      --btn-call-bg: #dcfce7;
-      --btn-call-border: #86efac;
-      --btn-call-text: #166534;
+      --text-main: #0f172a;      /* Yüksek Kontrastlı Koyu Metin */
+      --text-sub: #475569;       /* Net Okunur Alt Metin */
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: var(--bg-slate); display: flex; justify-content: center; min-height: 100vh; padding: 0; }
     
     .container { width: 100%; max-width: 500px; background: #ffffff; box-shadow: 0 12px 36px rgba(0,0,0,0.14); display: flex; flex-direction: column; }
     
-    /* 1. Üst Hero Banner (Fotoğraflı & Plaketli) */
+    /* 1. Üst Hero Banner */
     .hero-header {
       background: linear-gradient(180deg, var(--dark-blue) 0%, #061e47 100%);
       padding: 14px 16px 18px 16px;
@@ -40,14 +29,27 @@
     .tuv-logo { height: 44px; width: auto; object-fit: contain; }
     .top-bar-title { font-size: 20px; font-weight: 700; border-left: 2px solid rgba(255,255,255,0.25); padding-left: 10px; }
     
+    /* Beyaz Arka Planı Kaldırılmış, Doğrudan PMS 282 C Zeminle Bütünleşen Plaket */
+    .plakette-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--dark-blue);
+      flex-shrink: 0;
+    }
     .plakette-img {
-      height: 48px;
-      width: 48px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+      mix-blend-mode: multiply; /* Beyaz kareyi şeffaflaştırıp lacivertle bütünleştirir */
+      display: block;
     }
 
-    /* Hero Bölümü: Solda Başlık, Sağda İstasyon Fotoğrafı */
+    /* Hero Bölümü: Solda İstasyon, Sağda Fotoğraf */
     .hero-body {
       display: flex;
       align-items: center;
@@ -63,8 +65,8 @@
     .station-tam { font-size: 14px; font-weight: 600; color: #93c5fd; margin-top: 4px; }
     
     .hero-photo-wrap {
-      width: 140px;
-      height: 95px;
+      width: 135px;
+      height: 90px;
       border-radius: 6px;
       overflow: hidden;
       border: 1.5px solid rgba(255,255,255,0.3);
@@ -75,7 +77,7 @@
     /* 2. Orta İçerik Alanı */
     .main-content { padding: 18px 16px; flex: 1; background: #f8fafc; }
 
-    /* 3 Aksiyon Butonu */
+    /* Net, Kontrastlı ve Birbirinden Ayrışan Aksiyon Butonları */
     .cards-grid { display: flex; flex-direction: column; gap: 11px; margin-bottom: 18px; }
     .action-card {
       border-radius: 8px;
@@ -90,9 +92,10 @@
     }
     .action-card:active { transform: scale(0.99); }
     .card-left { display: flex; align-items: center; gap: 12px; }
+    
     .icon-circle {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -101,24 +104,21 @@
       background: #ffffff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.06);
     }
-    .icon-circle svg { width: 19px; height: 19px; }
+    .icon-circle svg { width: 20px; height: 20px; }
     
-    .card-info h4 { font-size: 15px; font-weight: 800; line-height: 1.2; }
-    .card-info p { font-size: 12px; margin-top: 2px; font-weight: 600; }
-    .arrow-icon { font-size: 18px; font-weight: bold; }
+    /* Tüm Başlıklar Net Koyu Antrasit, Açıklamalar Okunaklı Gri */
+    .card-info h4 { font-size: 15.5px; font-weight: 800; color: var(--text-main); line-height: 1.2; }
+    .card-info p { font-size: 12.5px; margin-top: 2px; font-weight: 600; color: var(--text-sub); }
+    .arrow-icon { font-size: 18px; font-weight: bold; color: #64748b; }
 
-    /* 1. Route (Tok Mavi) */
-    .card-route { background: var(--btn-maps-bg); border-color: var(--btn-maps-border); }
-    .card-route .icon-circle svg { fill: var(--btn-maps-text); }
-    .card-route h4 { color: var(--btn-maps-text); }
-    .card-route p { color: #2563eb; }
-    .card-route .arrow-icon { color: var(--btn-maps-text); }
+    /* 1. Route Butonu (Hafif Mavi Zemin, Mavi İkon) */
+    .card-route { background: #e0ecfb; border-color: #93c5fd; }
+    .card-route .icon-circle svg { fill: var(--electric-blue); }
 
-    /* 2. Termin (Tok Gri/Antrasit + Farklı Mavi Rozet) */
-    .card-termin { background: var(--btn-termin-bg); border-color: var(--btn-termin-border); }
-    .card-termin .icon-circle svg { fill: var(--btn-termin-text); }
-    .card-termin h4 { color: var(--btn-termin-text); }
-    .card-termin .badge-termin { 
+    /* 2. Termin Butonu (Hafif Gri/Nötr Zemin, Koyu Lacivert İkon) */
+    .card-termin { background: #f1f5f9; border-color: #cbd5e1; }
+    .card-termin .icon-circle svg { fill: var(--dark-blue); }
+    .badge-termin { 
       display: inline-block; 
       margin-top: 3px; 
       font-size: 11px; 
@@ -128,16 +128,12 @@
       padding: 2px 8px; 
       border-radius: 4px; 
     }
-    .card-termin .arrow-icon { color: var(--btn-termin-text); }
 
-    /* 3. Telefon (Tok Zümrüt Yeşili) */
-    .card-call { background: var(--btn-call-bg); border-color: var(--btn-call-border); }
-    .card-call .icon-circle svg { fill: var(--btn-call-text); }
-    .card-call h4 { color: var(--btn-call-text); }
-    .card-call p { color: #15803d; }
-    .card-call .arrow-icon { color: var(--btn-call-text); }
+    /* 3. Telefon Butonu (Hafif Yeşil Zemin, Koyu Yeşil İkon) */
+    .card-call { background: #dcfce7; border-color: #86efac; }
+    .card-call .icon-circle svg { fill: #047857; }
 
-    /* Kart Yapıları */
+    /* Ortak Kartlar */
     .section-card {
       background: #ffffff;
       border: 1px solid #cbd5e1;
@@ -147,7 +143,7 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
     .section-title {
-      font-size: 14.5px;
+      font-size: 15px;
       font-weight: 800;
       color: var(--dark-blue);
       margin-bottom: 10px;
@@ -157,29 +153,29 @@
       border-bottom: 1.5px solid #e2e8f0;
       padding-bottom: 6px;
     }
-    .section-title svg { width: 17px; height: 17px; fill: var(--dark-blue); }
+    .section-title svg { width: 18px; height: 18px; fill: var(--dark-blue); }
 
     /* Açılış Saatleri & Adres */
-    .info-grid { display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: #1e293b; font-weight: 600; line-height: 1.5; }
+    .info-grid { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #1e293b; font-weight: 600; line-height: 1.5; }
     .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
 
-    /* Alt Alta Hizmet Listesi */
+    /* İstenen Yeni Sıralamayla Prüfleistungen */
     .services-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
     .services-list li {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
-      color: #334155;
+      color: #1e293b;
       background: #f8fafc;
-      padding: 7px 10px;
+      padding: 8px 10px;
       border-radius: 5px;
-      border-left: 3px solid var(--electric-blue);
+      border-left: 3.5px solid var(--electric-blue);
     }
-    .services-list li svg { width: 13px; height: 13px; fill: #16a34a; flex-shrink: 0; }
+    .services-list li svg { width: 14px; height: 14px; fill: #16a34a; flex-shrink: 0; }
 
-    /* Alt Taban (Footer) */
+    /* Alt Footer */
     .footer-navy {
       background-color: var(--dark-blue);
       padding: 14px;
@@ -203,10 +199,13 @@
           <div class="top-bar-title">Kfz-Prüfstelle</div>
         </div>
 
-        <img src="plakett.png" alt="HU Plakette" class="plakette-img">
+        <!-- PMS 282 C İle Tam Bütünleşen HU-Plakette -->
+        <div class="plakette-wrapper">
+          <img src="plakett.png" alt="HU Plakette" class="plakette-img">
+        </div>
       </div>
 
-      <!-- Hero İçinde Başlık ve İstasyon Fotoğrafı -->
+      <!-- Hero Bilgi ve İstasyon Fotoğrafı -->
       <div class="hero-body">
         <div class="hero-text">
           <div class="station-city">Duisburg-Hochfeld</div>
@@ -221,7 +220,7 @@
     <!-- Orta İçerik -->
     <div class="main-content">
       
-      <!-- 3 Tok Renkli Aksiyon Butonu -->
+      <!-- Aksiyon Butonları (Yüksek Kontrastlı ve Okunaklı Metinler) -->
       <div class="cards-grid">
         
         <!-- 1. Route -->
@@ -285,7 +284,7 @@
         </div>
       </div>
 
-      <!-- Alt Alta Hizmetler -->
+      <!-- Güncellenmiş Sıralama: Gasanlagenprüfung Eklendi, Änderungsabnahmen En Altta -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -298,7 +297,7 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Änderungsabnahmen (§ 19.3 StVZO)
+            Gasanlagenprüfung (GAP / GSP für Gasantriebe)
           </li>
           <li>
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -307,6 +306,10 @@
           <li>
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
             Taxi & Mietwagen Prüfungen (BOKraft)
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Änderungsabnahmen (§ 19.3 StVZO)
           </li>
         </ul>
       </div>
