@@ -118,22 +118,23 @@
     .card-info p { font-size: 12px; margin-top: 2px; font-weight: 500; color: var(--text-muted); }
     .arrow-svg { width: 16px; height: 16px; fill: #94a3b8; flex-shrink: 0; }
 
-    /* BUTONLAR ARASINDAKİ ÖZEL 'AUCH OHNE TERMIN' BİLGİ ŞERİDİ */
+    /* ÇİZGİSİZ, KÜÇÜLTÜLMÜŞ VE ZARİF 'AUCH OHNE TERMIN' ALANI */
     .no-appointment-banner {
       background: #ecfdf5;
-      border: 1px dashed #10b981;
-      border-radius: 6px;
-      padding: 8px 12px;
-      display: flex;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 14px;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       color: #065f46;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      margin: 2px 0;
+      margin: 1px auto;
+      max-width: fit-content;
     }
-    .no-appointment-banner svg { width: 16px; height: 16px; fill: #10b981; flex-shrink: 0; }
+    .no-appointment-banner svg { width: 14px; height: 14px; fill: #10b981; flex-shrink: 0; }
 
     /* 4. Açılış Saatleri & Panoramik Fotoğraf */
     .section-card {
@@ -234,7 +235,7 @@
       </div>
     </div>
 
-    <!-- 3. Aksiyon Butonları & Araya Eklenen 'Auch ohne Termin' Şeridi -->
+    <!-- 3. Aksiyon Butonları -->
     <div class="main-content">
       
       <div class="cards-grid">
@@ -267,10 +268,12 @@
           <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
-        <!-- Araya Eklenen 'Auch ohne Termin möglich' Şeridi -->
-        <div class="no-appointment-banner">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span data-i18n="bannerNoTermin">Auch ohne Termin möglich – einfach vorbeikommen!</span>
+        <!-- Çizgisiz, Kompakt ve Şık Ara Rozet -->
+        <div style="text-align: center; width: 100%;">
+          <div class="no-appointment-banner">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span data-i18n="bannerNoTermin">Auch ohne Termin möglich – einfach vorbeikommen!</span>
+          </div>
         </div>
 
         <!-- Telefon -->
@@ -325,7 +328,7 @@
         </div>
       </div>
 
-      <!-- 5. Prüfleistungen Listesi (CNG kaldırıldı, Yalnızca LPG + Feinstaubplakette Eklendi) -->
+      <!-- 5. Prüfleistungen Listesi -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -434,7 +437,7 @@
         btnRouteSub: "İstasyona doğrudan navigasyon başlat",
         btnTerminTitle: "Online Randevu Al",
         btnTerminSub: "İstediğiniz randevuyu online oluşturun",
-        bannerNoTermin: "Randevusuz da gelebilirsiniz – bekleriz!",
+        bannerNoTermin: "Randevusuz da gelebilirsiniz!",
         btnCallTitle: "Tel: +49 163 68 14 777",
         btnCallSub: "Hemen doğrudan arayın",
         btnWaTitle: "WhatsApp Destek",
