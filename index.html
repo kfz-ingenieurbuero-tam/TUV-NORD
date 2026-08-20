@@ -54,20 +54,47 @@
     }
     .plakette-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.42); display: block; }
 
-    /* 2. İstasyon Başlığı & Dikey Dil Butonları */
+    /* 2. Partner Logo & İstasyon Başlığı & Dil Butonları */
     .station-bar {
       background: #f1f5f9;
       border-bottom: 1px solid #e2e8f0;
-      padding: 14px 18px;
+      padding: 12px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     
-    .station-text { text-align: left; flex: 1; }
-    .station-city { font-size: 22px; font-weight: 900; color: var(--electric-blue); letter-spacing: -0.2px; line-height: 1.2; }
-    .station-tam { font-size: 14.5px; font-weight: 700; color: #334155; margin-top: 3px; }
+    .station-left-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    /* Partner Ofis Logosu (TAM) */
+    .partner-logo-box {
+      width: 54px;
+      height: 54px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      flex-shrink: 0;
+    }
+    .partner-logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .station-text { text-align: left; }
+    .station-city { font-size: 20px; font-weight: 900; color: var(--electric-blue); letter-spacing: -0.2px; line-height: 1.2; }
+    .station-tam { font-size: 13.5px; font-weight: 700; color: #334155; margin-top: 2px; }
 
     .lang-switcher-vertical { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
     .lang-btn {
@@ -81,7 +108,7 @@
       cursor: pointer;
       text-align: center;
       transition: all 0.2s ease;
-      min-width: 62px;
+      min-width: 60px;
     }
     .lang-btn.active, .lang-btn:hover { background: var(--dark-blue); border-color: var(--dark-blue); color: #ffffff; }
 
@@ -118,7 +145,7 @@
     .card-info p { font-size: 12px; margin-top: 2px; font-weight: 500; color: var(--text-muted); }
     .arrow-svg { width: 16px; height: 16px; fill: #94a3b8; flex-shrink: 0; }
 
-    /* ÇİZGİSİZ, KÜÇÜLTÜLMÜŞ VE ZARİF 'AUCH OHNE TERMIN' ALANI */
+    /* Kompakt Ara Rozet */
     .no-appointment-banner {
       background: #ecfdf5;
       border: none;
@@ -221,11 +248,18 @@
       </div>
     </div>
 
-    <!-- 2. İstasyon Başlığı & Dikey Dil Butonları -->
+    <!-- 2. Partner Logo + İstasyon Başlığı + Dikey Dil Butonları -->
     <div class="station-bar">
-      <div class="station-text">
-        <div class="station-city">Duisburg-Hochfeld</div>
-        <div class="station-tam">Kfz-Ingenieurbüro TAM</div>
+      <div class="station-left-group">
+        <!-- TAM Partner Logosu -->
+        <div class="partner-logo-box">
+          <img src="Logo%20TAM%20Turgut%20Akdemir.png" alt="Kfz-Ingenieurbüro TAM Logo">
+        </div>
+        
+        <div class="station-text">
+          <div class="station-city">Duisburg-Hochfeld</div>
+          <div class="station-tam">Kfz-Ingenieurbüro TAM</div>
+        </div>
       </div>
 
       <div class="lang-switcher-vertical">
@@ -268,7 +302,7 @@
           <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
         </a>
 
-        <!-- Çizgisiz, Kompakt ve Şık Ara Rozet -->
+        <!-- Ara Rozet -->
         <div style="text-align: center; width: 100%;">
           <div class="no-appointment-banner">
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
