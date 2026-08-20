@@ -17,9 +17,24 @@
       --icon-wa: #22a05b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: #e5eaf2; display: flex; justify-content: center; min-height: 100vh; padding: 0; }
+    body { 
+      background: #e5eaf2; 
+      display: flex; 
+      justify-content: center; 
+      align-items: flex-start;
+      min-height: 100vh; 
+      padding: 0; 
+    }
     
-    .container { width: 100%; max-width: 490px; background: #ffffff; box-shadow: 0 14px 40px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
+    .container { 
+      width: 100%; 
+      max-width: 490px; 
+      background: #ffffff; 
+      box-shadow: 0 14px 40px rgba(0,0,0,0.12); 
+      display: flex; 
+      flex-direction: column; 
+      transition: all 0.3s ease;
+    }
     
     /* 1. Üst Resmi Tabela */
     .hero-header {
@@ -54,7 +69,7 @@
     }
     .plakette-img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.42); display: block; }
 
-    /* 2. Partner Logo Alanı & Başlık (Pantone 282 C) */
+    /* 2. Partner Logo Alanı & Başlık */
     .station-bar {
       background: #f1f5f9;
       border-bottom: 1px solid #e2e8f0;
@@ -111,8 +126,20 @@
     }
     .lang-btn.active, .lang-btn:hover { background: var(--dark-blue); border-color: var(--dark-blue); color: #ffffff; }
 
-    /* 3. Orta İçerik */
-    .main-content { padding: 16px 16px 20px 16px; background: #ffffff; flex: 1; }
+    /* 3. Ana İçerik */
+    .main-content { 
+      padding: 16px 16px 20px 16px; 
+      background: #ffffff; 
+      flex: 1; 
+      display: flex;
+      flex-direction: column;
+    }
+
+    .left-column, .right-column {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
     /* Aksiyon Butonları */
     .cards-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
@@ -162,7 +189,7 @@
     }
     .no-appointment-banner svg { width: 14px; height: 14px; fill: #10b981; flex-shrink: 0; }
 
-    /* 4. Açılış Saatleri & Panoramik Fotoğraf */
+    /* 4. Açılış Saatleri & Fotoğraf */
     .section-card {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
@@ -226,6 +253,52 @@
     [dir="rtl"] .top-bar-title { border-left: none; border-right: 2.5px solid rgba(255,255,255,0.4); padding-left: 0; padding-right: 14px; }
     [dir="rtl"] .services-list li { border-left: 1px solid #e2e8f0; border-right: 3.5px solid var(--dark-blue); }
     [dir="rtl"] .arrow-svg { transform: rotate(180deg); }
+
+    /* =========================================================
+       MASAÜSTÜ VE TABLET DÜZENİ (768px ve üzeri ekranlar)
+       ========================================================= */
+    @media (min-width: 768px) {
+      body {
+        padding: 30px 16px;
+      }
+      .container {
+        max-width: 920px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0,0,60,0.15);
+      }
+      .station-bar {
+        padding: 16px 24px;
+      }
+      .lang-switcher-vertical {
+        flex-direction: row;
+        gap: 6px;
+      }
+      .lang-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .main-content {
+        flex-direction: row;
+        gap: 24px;
+        padding: 24px;
+      }
+      .left-column {
+        flex: 1.1;
+      }
+      .right-column {
+        flex: 1.2;
+      }
+      .cards-grid {
+        margin-bottom: 0;
+      }
+      .action-card {
+        padding: 14px 16px;
+      }
+      .action-card:hover {
+        transform: translateY(-2px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -246,7 +319,7 @@
       </div>
     </div>
 
-    <!-- 2. Duisburg-Hochfeld (Pantone 282 C) + TAM Partner Logosu + Dikey Dil Butonları -->
+    <!-- 2. Duisburg-Hochfeld + TAM Partner Logosu + Dil Butonları -->
     <div class="station-bar">
       <div class="station-left-group">
         <div class="station-city">Duisburg-Hochfeld</div>
@@ -256,162 +329,168 @@
       </div>
 
       <div class="lang-switcher-vertical">
-        <button class="lang-btn active" onclick="setLanguage('de')">DE 🇩🇪</button>
-        <button class="lang-btn" onclick="setLanguage('tr')">TR 🇹🇷</button>
-        <button class="lang-btn" onclick="setLanguage('ar')">AR 🇸🇦</button>
+        <button class="lang-btn active" onclick="setLanguage('de', this)">DE 🇩🇪</button>
+        <button class="lang-btn" onclick="setLanguage('tr', this)">TR 🇹🇷</button>
+        <button class="lang-btn" onclick="setLanguage('ar', this)">AR 🇸🇦</button>
       </div>
     </div>
 
-    <!-- 3. Aksiyon Butonları -->
+    <!-- 3. Ana İçerik (Masaüstünde 2 Kolon) -->
     <div class="main-content">
       
-      <div class="cards-grid">
-        
-        <!-- Route -->
-        <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="action-card card-route" target="_blank">
-          <div class="card-left">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24"><path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/></svg>
+      <!-- Sol Kolon: Aksiyon Butonları -->
+      <div class="left-column">
+        <div class="cards-grid">
+          
+          <!-- Route -->
+          <a href="https://maps.app.goo.gl/zzQxrJthEDKbPZXr5" class="action-card card-route" target="_blank">
+            <div class="card-left">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24"><path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/></svg>
+              </div>
+              <div class="card-info">
+                <h4 data-i18n="btnRouteTitle">Route & Anfahrt</h4>
+                <p data-i18n="btnRouteSub">Direkt zur Prüfstelle navigieren</p>
+              </div>
             </div>
-            <div class="card-info">
-              <h4 data-i18n="btnRouteTitle">Route & Anfahrt</h4>
-              <p data-i18n="btnRouteSub">Direkt zur Prüfstelle navigieren</p>
+            <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+
+          <!-- Rezervasyon Bağlantısı -->
+          <a href="https://www.tuev-nord.de/de/stationen/termin-vereinbaren/?stationId=559&cHash=5e954e585ec9ba7811f1e33e6d9358b2" class="action-card card-termin" target="_blank">
+            <div class="card-left">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+              </div>
+              <div class="card-info">
+                <h4 data-i18n="btnTerminTitle">Online-Termin buchen</h4>
+                <p data-i18n="btnTerminSub">Wunschtermin online vereinbaren</p>
+              </div>
+            </div>
+            <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+
+          <!-- Ara Rozet -->
+          <div style="text-align: center; width: 100%;">
+            <div class="no-appointment-banner">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span data-i18n="bannerNoTermin">Auch ohne Termin möglich – einfach vorbeikommen!</span>
             </div>
           </div>
-          <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-        </a>
 
-        <!-- Doğrudan Rezervasyon Bağlantısı (Düzeltildi) -->
-        <a href="https://www.tuev-nord.de/de/stationen/termin-vereinbaren/?stationId=559&cHash=5e954e585ec9ba7811f1e33e6d9358b2" class="action-card card-termin" target="_blank">
-          <div class="card-left">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+          <!-- Telefon -->
+          <a href="tel:+491636814777" class="action-card card-call">
+            <div class="card-left">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div class="card-info">
+                <h4 data-i18n="btnCallTitle">Tel: +49 163 68 14 777</h4>
+                <p data-i18n="btnCallSub">Jetzt direkt anrufen</p>
+              </div>
             </div>
-            <div class="card-info">
-              <h4 data-i18n="btnTerminTitle">Online-Termin buchen</h4>
-              <p data-i18n="btnTerminSub">Wunschtermin online vereinbaren</p>
+            <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/491636814777?text=Hallo,%20ich%20habe%20eine%20Frage%20an%20die%20Pr%C3%BCfstelle:%20" class="action-card card-wa" target="_blank">
+            <div class="card-left">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.39 1.24-1.93 1.32-.51.08-1.16.11-3.37-.8-2.67-1.11-4.38-3.83-4.51-4.01-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .36 0 .52.01.17.01.39-.06.61.47.23.55.77 1.88.84 2.02.07.14.11.31.02.5-.09.18-.14.3-.28.47-.14.16-.29.37-.42.49-.14.14-.29.3-.13.57.17.28.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.31 1.42.29.14.45.12.62-.07.17-.19.73-.85.92-1.14.2-.29.39-.24.66-.14.27.1 1.7.8 1.99.94.29.15.49.22.56.34.07.13.07.74-.17 1.41z"/></svg>
+              </div>
+              <div class="card-info">
+                <h4 data-i18n="btnWaTitle">WhatsApp Chat</h4>
+                <p data-i18n="btnWaSub">Fragen unkompliziert per Chat stellen</p>
+              </div>
+            </div>
+            <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Sağ Kolon: Açılış Saatleri & Hizmetler -->
+      <div class="right-column">
+        <!-- 4. Bilgi ve Panoramik Fotoğraf -->
+        <div class="section-card">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
+            <span data-i18n="hoursTitle">Öffnungszeiten & Standort</span>
+          </div>
+
+          <div class="info-grid">
+            <div>
+              <strong data-i18n="daysLabel">Mo. – Fr.:</strong> 10:30 – 17:00 <span data-i18n="uhrLabel">Uhr</span><br>
+              <strong data-i18n="fridayLabel">Freitag:</strong> 12:30 – 14:30 <span data-i18n="uhrLabel">Uhr</span> <span data-i18n="pauseLabel">Mittagspause</span>
+            </div>
+            <div class="address-highlight">
+              📍 Karl-Jarres-Str. 92, 47053 Duisburg
             </div>
           </div>
-          <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-        </a>
 
-        <!-- Ara Rozet -->
-        <div style="text-align: center; width: 100%;">
-          <div class="no-appointment-banner">
+          <div class="station-photo-banner">
+            <img src="kjs1.jpg" alt="Kfz-Prüfstelle Duisburg-Hochfeld">
+          </div>
+        </div>
+
+        <!-- 5. Prüfleistungen Listesi -->
+        <div class="section-card" style="margin-bottom: 0;">
+          <div class="section-title">
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            <span data-i18n="bannerNoTermin">Auch ohne Termin möglich – einfach vorbeikommen!</span>
+            <span data-i18n="servicesTitle">Unsere Prüfleistungen</span>
           </div>
+          <ul class="services-list">
+            <li>
+              <div class="srv-head">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="srv1Head">HU / AU für Pkw, Motorrad & Anhänger</span>
+              </div>
+              <div class="srv-desc" data-i18n="srv1Desc">Gesetzlich vorgeschriebene Haupt- und Abgasuntersuchung.</div>
+            </li>
+            <li>
+              <div class="srv-head">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="srv2Head">Gasanlagenprüfung (GAP / GSP für LPG)</span>
+              </div>
+              <div class="srv-desc" data-i18n="srv2Desc">Wiederkehrende Dichtheits- und Sicherheitsprüfung für Autogas (LPG).</div>
+            </li>
+            <li>
+              <div class="srv-head">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="srv3Head">Oldtimerbegutachtung (§ 23 StVZO)</span>
+              </div>
+              <div class="srv-desc" data-i18n="srv3Desc">Gutachten zur Einstufung als Oldtimer für das H-Kennzeichen.</div>
+            </li>
+            <li>
+              <div class="srv-head">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="srv4Head">Taxi & Mietwagen Prüfungen (BOKraft)</span>
+              </div>
+              <div class="srv-desc" data-i18n="srv4Desc">Sonderprüfungen für Fahrzeuge im Personenverkehr (§ 42 BOKraft).</div>
+            </li>
+            <li>
+              <div class="srv-head">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="srv5Head">Änderungsabnahmen (§ 19.3 StVZO)</span>
+              </div>
+              <div class="srv-desc" data-i18n="srv5Desc">Begutachtung von Umbauten wie Felgen, Fahrwerk oder Anhängerkupplung.</div>
+            </li>
+            <li>
+              <div class="srv-head">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="srv6Head">Mängelkarte & Nachprüfung</span>
+              </div>
+              <div class="srv-desc" data-i18n="srv6Desc">Schnelle Nachuntersuchung nach Beseitigung festgestellter Mängel.</div>
+            </li>
+            <li>
+              <div class="srv-head">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="srv7Head">Feinstaubplakette (Umweltplakette)</span>
+              </div>
+              <div class="srv-desc" data-i18n="srv7Desc">Ausstellung der grünen Umweltplakette für Umweltzonen direkt vor Ort.</div>
+            </li>
+          </ul>
         </div>
-
-        <!-- Telefon -->
-        <a href="tel:+491636814777" class="action-card card-call">
-          <div class="card-left">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            </div>
-            <div class="card-info">
-              <h4 data-i18n="btnCallTitle">Tel: +49 163 68 14 777</h4>
-              <p data-i18n="btnCallSub">Jetzt direkt anrufen</p>
-            </div>
-          </div>
-          <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-        </a>
-
-        <!-- WhatsApp -->
-        <a href="https://wa.me/491636814777?text=Hallo,%20ich%20habe%20eine%20Frage%20an%20die%20Pr%C3%BCfstelle:%20" class="action-card card-wa" target="_blank">
-          <div class="card-left">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.39 1.24-1.93 1.32-.51.08-1.16.11-3.37-.8-2.67-1.11-4.38-3.83-4.51-4.01-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .36 0 .52.01.17.01.39-.06.61.47.23.55.77 1.88.84 2.02.07.14.11.31.02.5-.09.18-.14.3-.28.47-.14.16-.29.37-.42.49-.14.14-.29.3-.13.57.17.28.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.31 1.42.29.14.45.12.62-.07.17-.19.73-.85.92-1.14.2-.29.39-.24.66-.14.27.1 1.7.8 1.99.94.29.15.49.22.56.34.07.13.07.74-.17 1.41z"/></svg>
-            </div>
-            <div class="card-info">
-              <h4 data-i18n="btnWaTitle">WhatsApp Chat</h4>
-              <p data-i18n="btnWaSub">Fragen unkompliziert per Chat stellen</p>
-            </div>
-          </div>
-          <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-        </a>
-
-      </div>
-
-      <!-- 4. Bilgi ve Panoramik Fotoğraf -->
-      <div class="section-card">
-        <div class="section-title">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
-          <span data-i18n="hoursTitle">Öffnungszeiten & Standort</span>
-        </div>
-
-        <div class="info-grid">
-          <div>
-            <strong data-i18n="daysLabel">Mo. – Fr.:</strong> 10:30 – 17:00 <span data-i18n="uhrLabel">Uhr</span><br>
-            <strong data-i18n="fridayLabel">Freitag:</strong> 12:30 – 14:30 <span data-i18n="uhrLabel">Uhr</span> <span data-i18n="pauseLabel">Mittagspause</span>
-          </div>
-          <div class="address-highlight">
-            📍 Karl-Jarres-Str. 92, 47053 Duisburg
-          </div>
-        </div>
-
-        <div class="station-photo-banner">
-          <img src="kjs1.jpg" alt="Kfz-Prüfstelle Duisburg-Hochfeld">
-        </div>
-      </div>
-
-      <!-- 5. Prüfleistungen Listesi -->
-      <div class="section-card">
-        <div class="section-title">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span data-i18n="servicesTitle">Unsere Prüfleistungen</span>
-        </div>
-        <ul class="services-list">
-          <li>
-            <div class="srv-head">
-              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv1Head">HU / AU für Pkw, Motorrad & Anhänger</span>
-            </div>
-            <div class="srv-desc" data-i18n="srv1Desc">Gesetzlich vorgeschriebene Haupt- und Abgasuntersuchung.</div>
-          </li>
-          <li>
-            <div class="srv-head">
-              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv2Head">Gasanlagenprüfung (GAP / GSP für LPG)</span>
-            </div>
-            <div class="srv-desc" data-i18n="srv2Desc">Wiederkehrende Dichtheits- und Sicherheitsprüfung für Autogas (LPG).</div>
-          </li>
-          <li>
-            <div class="srv-head">
-              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv3Head">Oldtimerbegutachtung (§ 23 StVZO)</span>
-            </div>
-            <div class="srv-desc" data-i18n="srv3Desc">Gutachten zur Einstufung als Oldtimer für das H-Kennzeichen.</div>
-          </li>
-          <li>
-            <div class="srv-head">
-              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv4Head">Taxi & Mietwagen Prüfungen (BOKraft)</span>
-            </div>
-            <div class="srv-desc" data-i18n="srv4Desc">Sonderprüfungen für Fahrzeuge im Personenverkehr (§ 42 BOKraft).</div>
-          </li>
-          <li>
-            <div class="srv-head">
-              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv5Head">Änderungsabnahmen (§ 19.3 StVZO)</span>
-            </div>
-            <div class="srv-desc" data-i18n="srv5Desc">Begutachtung von Umbauten wie Felgen, Fahrwerk oder Anhängerkupplung.</div>
-          </li>
-          <li>
-            <div class="srv-head">
-              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv6Head">Mängelkarte & Nachprüfung</span>
-            </div>
-            <div class="srv-desc" data-i18n="srv6Desc">Schnelle Nachuntersuchung nach Beseitigung festgestellter Mängel.</div>
-          </li>
-          <li>
-            <div class="srv-head">
-              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              <span data-i18n="srv7Head">Feinstaubplakette (Umweltplakette)</span>
-            </div>
-            <div class="srv-desc" data-i18n="srv7Desc">Ausstellung der grünen Umweltplakette für Umweltzonen direkt vor Ort.</div>
-          </li>
-        </ul>
       </div>
 
     </div>
@@ -526,9 +605,11 @@
       }
     };
 
-    function setLanguage(lang) {
+    function setLanguage(lang, btnElement) {
       document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      if (btnElement) {
+        btnElement.classList.add('active');
+      }
 
       const container = document.getElementById('pageContainer');
       if (lang === 'ar') {
