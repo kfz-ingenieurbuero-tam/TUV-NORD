@@ -17,7 +17,7 @@
     
     .container { width: 100%; max-width: 500px; background: #ffffff; box-shadow: 0 12px 36px rgba(0,0,0,0.14); display: flex; flex-direction: column; }
     
-    /* 1. Üst Tabela Alanı - BÜYÜK VE DOMİNANT */
+    /* 1. Üst Tabela Alanı */
     .hero-header {
       background: linear-gradient(180deg, var(--dark-blue) 0%, #061e47 100%);
       padding: 16px 18px 20px 18px;
@@ -41,22 +41,24 @@
       line-height: 1.1;
     }
     
-    /* Sizin Gönderdiğiniz Orijinal Plaketin Yuvarlak Çerçevesi */
+    /* BEYAZ HALKAYI SIFIRLAYAN VE PLAKETİ TAM OTURTAN ALAN */
     .plakette-wrapper {
-      width: 58px;
-      height: 58px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      background: transparent;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.35);
     }
     .plakette-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transform: scale(1.42); /* Görselin beyaz kenarlarını dışarı atar, sadece sarı yuvarlak kalır */
       display: block;
     }
 
@@ -143,7 +145,7 @@
     .card-call { background: #dcfce7; border-color: #86efac; }
     .card-call .icon-circle svg { fill: #047857; }
 
-    /* Ortak Kart Yapıları */
+    /* Ortak Kartlar */
     .section-card {
       background: #ffffff;
       border: 1px solid #cbd5e1;
@@ -169,7 +171,7 @@
     .info-grid { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #1e293b; font-weight: 600; line-height: 1.5; }
     .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
 
-    /* Hizmet Listesi */
+    /* Sıralı Hizmet Listesi */
     .services-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
     .services-list li {
       display: flex;
@@ -209,7 +211,7 @@
           <div class="top-bar-title">Kfz-Prüfstelle</div>
         </div>
 
-        <!-- Sizin Yüklediğiniz Orijinal Plaketin Kendisi -->
+        <!-- Beyaz Halkası Tamamen Yok Edilmiş Plaket -->
         <div class="plakette-wrapper">
           <img src="plakett.png" alt="HU Plakette" class="plakette-img">
         </div>
@@ -294,7 +296,7 @@
         </div>
       </div>
 
-      <!-- Sıralı Prüfleistungen -->
+      <!-- Prüfleistungen (İstenen Tam Sıralama) -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
