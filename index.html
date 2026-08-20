@@ -8,65 +8,66 @@
     :root {
       --dark-blue: #00003c;      /* Pantone 282 C */
       --electric-blue: #001ED2;  /* Pantone 293 C */
+      --tuv-yellow: #ffeb00;     /* Trustworthy Yellow */
       --bg-slate: #f1f5f9;
-      --text-main: #0f172a;      /* Yüksek Kontrastlı Koyu Metin */
-      --text-sub: #475569;       /* Net Okunur Alt Metin */
+      --text-main: #0f172a;
+      --text-sub: #475569;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: var(--bg-slate); display: flex; justify-content: center; min-height: 100vh; padding: 0; }
     
     .container { width: 100%; max-width: 500px; background: #ffffff; box-shadow: 0 12px 36px rgba(0,0,0,0.14); display: flex; flex-direction: column; }
     
-    /* 1. Üst Hero Banner */
+    /* 1. Üst Tabela Alanı - BÜYÜTÜLMÜŞ VE DOMİNANT */
     .hero-header {
       background: linear-gradient(180deg, var(--dark-blue) 0%, #061e47 100%);
-      padding: 14px 16px 18px 16px;
+      padding: 18px 18px 20px 18px;
       color: #ffffff;
     }
     
-    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-    .logo-area { display: flex; align-items: center; gap: 10px; }
-    .tuv-logo { height: 44px; width: auto; object-fit: contain; }
-    .top-bar-title { font-size: 20px; font-weight: 700; border-left: 2px solid rgba(255,255,255,0.25); padding-left: 10px; }
-    
-    /* Beyaz Arka Planı Kaldırılmış, Doğrudan PMS 282 C Zeminle Bütünleşen Plaket */
-    .plakette-wrapper {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--dark-blue);
-      flex-shrink: 0;
+    .top-bar { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 16px; 
     }
-    .plakette-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      mix-blend-mode: multiply; /* Beyaz kareyi şeffaflaştırıp lacivertle bütünleştirir */
-      display: block;
+    .logo-area { display: flex; align-items: center; gap: 14px; }
+    .tuv-logo { height: 56px; width: auto; object-fit: contain; }
+    .top-bar-title { 
+      font-size: 26px; /* Başlık belirgin şekilde büyütüldü */
+      font-weight: 800; 
+      border-left: 2.5px solid rgba(255,255,255,0.35); 
+      padding-left: 14px; 
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+    
+    /* Canlı, Kusursuz Sarı HU-Plakette Rozeti */
+    .plakette-wrapper {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
     }
 
-    /* Hero Bölümü: Solda İstasyon, Sağda Fotoğraf */
+    /* Hero Gövdesi: Alt İstasyon Kutusu - Orantılı ve Dengeli */
     .hero-body {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      background: rgba(255,255,255,0.06);
-      padding: 12px;
+      gap: 14px;
+      background: rgba(255,255,255,0.08);
+      padding: 12px 14px;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
     }
     .hero-text { flex: 1; text-align: left; }
-    .station-city { font-size: 21px; font-weight: 800; color: #ffffff; line-height: 1.2; }
-    .station-tam { font-size: 14px; font-weight: 600; color: #93c5fd; margin-top: 4px; }
+    .station-city { font-size: 19px; font-weight: 800; color: #ffffff; line-height: 1.2; }
+    .station-tam { font-size: 14px; font-weight: 600; color: #93c5fd; margin-top: 3px; }
     
     .hero-photo-wrap {
-      width: 135px;
-      height: 90px;
+      width: 125px;
+      height: 82px;
       border-radius: 6px;
       overflow: hidden;
       border: 1.5px solid rgba(255,255,255,0.3);
@@ -77,7 +78,7 @@
     /* 2. Orta İçerik Alanı */
     .main-content { padding: 18px 16px; flex: 1; background: #f8fafc; }
 
-    /* Net, Kontrastlı ve Birbirinden Ayrışan Aksiyon Butonları */
+    /* Butonlar */
     .cards-grid { display: flex; flex-direction: column; gap: 11px; margin-bottom: 18px; }
     .action-card {
       border-radius: 8px;
@@ -106,16 +107,15 @@
     }
     .icon-circle svg { width: 20px; height: 20px; }
     
-    /* Tüm Başlıklar Net Koyu Antrasit, Açıklamalar Okunaklı Gri */
     .card-info h4 { font-size: 15.5px; font-weight: 800; color: var(--text-main); line-height: 1.2; }
-    .card-info p { font-size: 12.5px; margin-top: 2px; font-weight: 600; color: var(--text-sub); }
+    .card-info p { font-size: 12px; margin-top: 2px; font-weight: 600; color: var(--text-sub); }
     .arrow-icon { font-size: 18px; font-weight: bold; color: #64748b; }
 
-    /* 1. Route Butonu (Hafif Mavi Zemin, Mavi İkon) */
+    /* 1. Route Butonu */
     .card-route { background: #e0ecfb; border-color: #93c5fd; }
     .card-route .icon-circle svg { fill: var(--electric-blue); }
 
-    /* 2. Termin Butonu (Hafif Gri/Nötr Zemin, Koyu Lacivert İkon) */
+    /* 2. Termin Butonu */
     .card-termin { background: #f1f5f9; border-color: #cbd5e1; }
     .card-termin .icon-circle svg { fill: var(--dark-blue); }
     .badge-termin { 
@@ -129,11 +129,11 @@
       border-radius: 4px; 
     }
 
-    /* 3. Telefon Butonu (Hafif Yeşil Zemin, Koyu Yeşil İkon) */
+    /* 3. Telefon Butonu */
     .card-call { background: #dcfce7; border-color: #86efac; }
     .card-call .icon-circle svg { fill: #047857; }
 
-    /* Ortak Kartlar */
+    /* Ortak Kart Yapıları */
     .section-card {
       background: #ffffff;
       border: 1px solid #cbd5e1;
@@ -153,13 +153,13 @@
       border-bottom: 1.5px solid #e2e8f0;
       padding-bottom: 6px;
     }
-    .section-title svg { width: 18px; height: 18px; fill: var(--dark-blue); }
+    .section-title svg { width: 17px; height: 17px; fill: var(--dark-blue); }
 
     /* Açılış Saatleri & Adres */
     .info-grid { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #1e293b; font-weight: 600; line-height: 1.5; }
     .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
 
-    /* İstenen Yeni Sıralamayla Prüfleistungen */
+    /* Hizmet Listesi */
     .services-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
     .services-list li {
       display: flex;
@@ -191,7 +191,7 @@
 
   <div class="container">
     
-    <!-- Üst Hero Banner -->
+    <!-- 1. Üst Tabela Alanı (Büyük ve Dominant) -->
     <div class="hero-header">
       <div class="top-bar">
         <div class="logo-area">
@@ -199,13 +199,36 @@
           <div class="top-bar-title">Kfz-Prüfstelle</div>
         </div>
 
-        <!-- PMS 282 C İle Tam Bütünleşen HU-Plakette -->
+        <!-- Kusursuz 12 Aylı Sarı HU-Plakette Vektörü -->
         <div class="plakette-wrapper">
-          <img src="plakett.png" alt="HU Plakette" class="plakette-img">
+          <svg viewBox="0 0 100 100" width="100%" height="100%">
+            <circle cx="50" cy="50" r="48" fill="#ffeb00" stroke="#000000" stroke-width="2.5"/>
+            <!-- Siyah Segment Bloku (12 yönü) -->
+            <path d="M 36 6 A 48 48 0 0 1 64 6 L 57 28 A 25 25 0 0 0 43 28 Z" fill="#000000"/>
+            <!-- Kadran Çizgileri -->
+            <line x1="50" y1="2" x2="50" y2="14" stroke="#000000" stroke-width="3"/>
+            <line x1="50" y1="86" x2="50" y2="98" stroke="#000000" stroke-width="3"/>
+            <line x1="2" y1="50" x2="14" y2="50" stroke="#000000" stroke-width="3"/>
+            <line x1="86" y1="50" x2="98" y2="50" stroke="#000000" stroke-width="3"/>
+            <line x1="16" y1="16" x2="25" y2="25" stroke="#000000" stroke-width="3"/>
+            <line x1="84" y1="16" x2="75" y2="25" stroke="#000000" stroke-width="3"/>
+            <line x1="16" y1="84" x2="25" y2="75" stroke="#000000" stroke-width="3"/>
+            <line x1="84" y1="84" x2="75" y2="75" stroke="#000000" stroke-width="3"/>
+            <!-- Orta HU Rozeti -->
+            <circle cx="50" cy="50" r="20" fill="#ffeb00" stroke="#000000" stroke-width="2.5"/>
+            <text x="50" y="56" font-size="15" font-weight="900" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif">HU</text>
+            <!-- Ay Sayıları -->
+            <text x="50" y="24" font-size="11" font-weight="900" text-anchor="middle" fill="#ffffff">12</text>
+            <text x="76" y="32" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">1</text>
+            <text x="24" y="32" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">11</text>
+            <text x="83" y="54" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">2</text>
+            <text x="17" y="54" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">10</text>
+            <text x="50" y="82" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">6</text>
+          </svg>
         </div>
       </div>
 
-      <!-- Hero Bilgi ve İstasyon Fotoğrafı -->
+      <!-- İstasyon ve Fotoğraf (Dengeli Boyut) -->
       <div class="hero-body">
         <div class="hero-text">
           <div class="station-city">Duisburg-Hochfeld</div>
@@ -220,7 +243,7 @@
     <!-- Orta İçerik -->
     <div class="main-content">
       
-      <!-- Aksiyon Butonları (Yüksek Kontrastlı ve Okunaklı Metinler) -->
+      <!-- Aksiyon Butonları -->
       <div class="cards-grid">
         
         <!-- 1. Route -->
@@ -284,7 +307,7 @@
         </div>
       </div>
 
-      <!-- Güncellenmiş Sıralama: Gasanlagenprüfung Eklendi, Änderungsabnahmen En Altta -->
+      <!-- Sıralı Prüfleistungen -->
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
