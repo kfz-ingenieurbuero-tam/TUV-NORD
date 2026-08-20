@@ -8,7 +8,6 @@
     :root {
       --dark-blue: #00003c;      /* Pantone 282 C */
       --electric-blue: #001ED2;  /* Pantone 293 C */
-      --tuv-yellow: #ffeb00;     /* Trustworthy Yellow */
       --bg-slate: #f1f5f9;
       --text-main: #0f172a;
       --text-sub: #475569;
@@ -18,10 +17,10 @@
     
     .container { width: 100%; max-width: 500px; background: #ffffff; box-shadow: 0 12px 36px rgba(0,0,0,0.14); display: flex; flex-direction: column; }
     
-    /* 1. Üst Tabela Alanı - BÜYÜTÜLMÜŞ VE DOMİNANT */
+    /* 1. Üst Tabela Alanı - BÜYÜK VE DOMİNANT */
     .hero-header {
       background: linear-gradient(180deg, var(--dark-blue) 0%, #061e47 100%);
-      padding: 18px 18px 20px 18px;
+      padding: 16px 18px 20px 18px;
       color: #ffffff;
     }
     
@@ -34,7 +33,7 @@
     .logo-area { display: flex; align-items: center; gap: 14px; }
     .tuv-logo { height: 56px; width: auto; object-fit: contain; }
     .top-bar-title { 
-      font-size: 26px; /* Başlık belirgin şekilde büyütüldü */
+      font-size: 26px; 
       font-weight: 800; 
       border-left: 2.5px solid rgba(255,255,255,0.35); 
       padding-left: 14px; 
@@ -42,15 +41,26 @@
       line-height: 1.1;
     }
     
-    /* Canlı, Kusursuz Sarı HU-Plakette Rozeti */
+    /* Sizin Gönderdiğiniz Orijinal Plaketin Yuvarlak Çerçevesi */
     .plakette-wrapper {
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .plakette-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    /* Hero Gövdesi: Alt İstasyon Kutusu - Orantılı ve Dengeli */
+    /* Alt İstasyon Kutusu */
     .hero-body {
       display: flex;
       align-items: center;
@@ -78,7 +88,7 @@
     /* 2. Orta İçerik Alanı */
     .main-content { padding: 18px 16px; flex: 1; background: #f8fafc; }
 
-    /* Butonlar */
+    /* Aksiyon Butonları */
     .cards-grid { display: flex; flex-direction: column; gap: 11px; margin-bottom: 18px; }
     .action-card {
       border-radius: 8px;
@@ -191,7 +201,7 @@
 
   <div class="container">
     
-    <!-- 1. Üst Tabela Alanı (Büyük ve Dominant) -->
+    <!-- 1. Üst Tabela Alanı -->
     <div class="hero-header">
       <div class="top-bar">
         <div class="logo-area">
@@ -199,36 +209,13 @@
           <div class="top-bar-title">Kfz-Prüfstelle</div>
         </div>
 
-        <!-- Kusursuz 12 Aylı Sarı HU-Plakette Vektörü -->
+        <!-- Sizin Yüklediğiniz Orijinal Plaketin Kendisi -->
         <div class="plakette-wrapper">
-          <svg viewBox="0 0 100 100" width="100%" height="100%">
-            <circle cx="50" cy="50" r="48" fill="#ffeb00" stroke="#000000" stroke-width="2.5"/>
-            <!-- Siyah Segment Bloku (12 yönü) -->
-            <path d="M 36 6 A 48 48 0 0 1 64 6 L 57 28 A 25 25 0 0 0 43 28 Z" fill="#000000"/>
-            <!-- Kadran Çizgileri -->
-            <line x1="50" y1="2" x2="50" y2="14" stroke="#000000" stroke-width="3"/>
-            <line x1="50" y1="86" x2="50" y2="98" stroke="#000000" stroke-width="3"/>
-            <line x1="2" y1="50" x2="14" y2="50" stroke="#000000" stroke-width="3"/>
-            <line x1="86" y1="50" x2="98" y2="50" stroke="#000000" stroke-width="3"/>
-            <line x1="16" y1="16" x2="25" y2="25" stroke="#000000" stroke-width="3"/>
-            <line x1="84" y1="16" x2="75" y2="25" stroke="#000000" stroke-width="3"/>
-            <line x1="16" y1="84" x2="25" y2="75" stroke="#000000" stroke-width="3"/>
-            <line x1="84" y1="84" x2="75" y2="75" stroke="#000000" stroke-width="3"/>
-            <!-- Orta HU Rozeti -->
-            <circle cx="50" cy="50" r="20" fill="#ffeb00" stroke="#000000" stroke-width="2.5"/>
-            <text x="50" y="56" font-size="15" font-weight="900" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif">HU</text>
-            <!-- Ay Sayıları -->
-            <text x="50" y="24" font-size="11" font-weight="900" text-anchor="middle" fill="#ffffff">12</text>
-            <text x="76" y="32" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">1</text>
-            <text x="24" y="32" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">11</text>
-            <text x="83" y="54" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">2</text>
-            <text x="17" y="54" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">10</text>
-            <text x="50" y="82" font-size="10" font-weight="900" text-anchor="middle" fill="#000000">6</text>
-          </svg>
+          <img src="plakett.png" alt="HU Plakette" class="plakette-img">
         </div>
       </div>
 
-      <!-- İstasyon ve Fotoğraf (Dengeli Boyut) -->
+      <!-- İstasyon ve Fotoğraf -->
       <div class="hero-body">
         <div class="hero-text">
           <div class="station-city">Duisburg-Hochfeld</div>
