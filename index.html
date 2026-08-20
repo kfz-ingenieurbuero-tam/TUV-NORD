@@ -11,33 +11,55 @@
       --bg-slate: #f1f5f9;
       --text-main: #0f172a;
       --text-sub: #475569;
-      --wa-green: #25D366;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: var(--bg-slate); display: flex; justify-content: center; min-height: 100vh; padding: 0; }
     
     .container { width: 100%; max-width: 500px; background: #ffffff; box-shadow: 0 12px 36px rgba(0,0,0,0.14); display: flex; flex-direction: column; }
     
-    /* 1. Üst Tabela Alanı */
+    /* 1. Üst Hero Banner */
     .hero-header {
       background: linear-gradient(180deg, var(--dark-blue) 0%, #061e47 100%);
-      padding: 16px 18px 20px 18px;
+      padding: 14px 18px 18px 18px;
       color: #ffffff;
     }
     
+    /* Dil Seçici Butonlar */
+    .lang-switcher {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: #ffffff;
+      color: var(--dark-blue);
+    }
+
     .top-bar { 
       display: flex; 
       justify-content: space-between; 
       align-items: center; 
-      margin-bottom: 16px; 
+      margin-bottom: 14px; 
     }
-    .logo-area { display: flex; align-items: center; gap: 14px; }
-    .tuv-logo { height: 56px; width: auto; object-fit: contain; }
+    .logo-area { display: flex; align-items: center; gap: 12px; }
+    .tuv-logo { height: 52px; width: auto; object-fit: contain; }
     .top-bar-title { 
-      font-size: 26px; 
+      font-size: 24px; 
       font-weight: 800; 
       border-left: 2.5px solid rgba(255,255,255,0.35); 
-      padding-left: 14px; 
+      padding-left: 12px; 
       letter-spacing: 0.5px;
       line-height: 1.1;
     }
@@ -62,12 +84,12 @@
       display: block;
     }
 
-    /* Alt İstasyon Kutusu */
+    /* İstasyon Bilgi Kutusu */
     .hero-body {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
       background: rgba(255,255,255,0.08);
       padding: 12px 14px;
       border-radius: 8px;
@@ -78,8 +100,8 @@
     .station-tam { font-size: 14px; font-weight: 600; color: #93c5fd; margin-top: 3px; }
     
     .hero-photo-wrap {
-      width: 125px;
-      height: 82px;
+      width: 120px;
+      height: 80px;
       border-radius: 6px;
       overflow: hidden;
       border: 1.5px solid rgba(255,255,255,0.3);
@@ -90,7 +112,7 @@
     /* 2. Orta İçerik Alanı */
     .main-content { padding: 18px 16px; flex: 1; background: #f8fafc; }
 
-    /* Aksiyon Butonları */
+    /* Net ve Birbirinden Ayrışan Butonlar */
     .cards-grid { display: flex; flex-direction: column; gap: 11px; margin-bottom: 18px; }
     .action-card {
       border-radius: 8px;
@@ -114,40 +136,47 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: #ffffff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.06);
     }
     .icon-circle svg { width: 20px; height: 20px; }
     
-    .card-info h4 { font-size: 15.5px; font-weight: 800; color: var(--text-main); line-height: 1.2; }
-    .card-info p { font-size: 12px; margin-top: 2px; font-weight: 600; color: var(--text-sub); }
-    .arrow-icon { font-size: 18px; font-weight: bold; color: #64748b; }
+    .card-info h4 { font-size: 15.5px; font-weight: 800; line-height: 1.2; }
+    .card-info p { font-size: 12px; margin-top: 2px; font-weight: 600; }
+    .arrow-icon { font-size: 18px; font-weight: bold; }
 
-    /* 1. Route Butonu */
-    .card-route { background: #e0ecfb; border-color: #93c5fd; }
+    /* 1. Buton: Route (Açık Mavi Zemin) */
+    .card-route { background: #eff6ff; border-color: #bfdbfe; }
+    .card-route .icon-circle { background: #ffffff; }
     .card-route .icon-circle svg { fill: var(--electric-blue); }
+    .card-route h4 { color: #1e3a8a; }
+    .card-route p { color: #2563eb; }
+    .card-route .arrow-icon { color: #1e3a8a; }
 
-    /* 2. Termin Butonu - Temiz, Uyumlu ve Şık */
+    /* 2. Buton: Termin (Kurumsal Nötr Gri Zemin) */
     .card-termin { background: #f1f5f9; border-color: #cbd5e1; }
+    .card-termin .icon-circle { background: #ffffff; }
     .card-termin .icon-circle svg { fill: var(--dark-blue); }
+    .card-termin h4 { color: #0f172a; }
+    .card-termin p { color: #475569; }
+    .card-termin .arrow-icon { color: #0f172a; }
 
-    /* 3. Telefon Arama Butonu */
-    .card-call { background: #ecfdf5; border-color: #a7f3d0; }
-    .card-call .icon-circle svg { fill: #047857; }
+    /* 3. Buton: Telefon (Sıcak Açık Kehribar/Kum Zemin - Yeşille Karışmaz) */
+    .card-call { background: #fefce8; border-color: #fef08a; }
+    .card-call .icon-circle { background: #ffffff; }
+    .card-call .icon-circle svg { fill: #854d0e; }
+    .card-call h4 { color: #713f12; }
+    .card-call p { color: #a16207; }
+    .card-call .arrow-icon { color: #713f12; }
 
-    /* 4. WhatsApp Soru Butonu */
-    .card-whatsapp { 
-      background: #f0fdf4; 
-      border-color: #86efac; 
-      border-left: 4px solid var(--wa-green);
-    }
-    .card-whatsapp .icon-circle { background: var(--wa-green); }
+    /* 4. Buton: WhatsApp (Resmi Canlı Yeşil) */
+    .card-whatsapp { background: #ecfdf5; border-color: #a7f3d0; border-left: 4px solid #10b981; }
+    .card-whatsapp .icon-circle { background: #10b981; }
     .card-whatsapp .icon-circle svg { fill: #ffffff; }
-    .card-whatsapp h4 { color: #14532d; }
-    .card-whatsapp p { color: #15803d; }
-    .card-whatsapp .arrow-icon { color: #15803d; }
+    .card-whatsapp h4 { color: #064e3b; }
+    .card-whatsapp p { color: #047857; }
+    .card-whatsapp .arrow-icon { color: #064e3b; }
 
-    /* Ortak Kartlar */
+    /* Ortak Bilgi Kartları */
     .section-card {
       background: #ffffff;
       border: 1px solid #cbd5e1;
@@ -169,11 +198,10 @@
     }
     .section-title svg { width: 17px; height: 17px; fill: var(--dark-blue); }
 
-    /* Açılış Saatleri & Adres */
     .info-grid { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #1e293b; font-weight: 600; line-height: 1.5; }
     .address-highlight { color: var(--electric-blue); font-weight: 700; margin-top: 2px; }
 
-    /* Sıralı Hizmet Listesi */
+    /* Hizmet Listesi */
     .services-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
     .services-list li {
       display: flex;
@@ -199,18 +227,32 @@
       font-weight: 700;
       letter-spacing: 0.4px;
     }
+
+    /* Arapça Dilinde Sağdan Sola Düzen (RTL) */
+    [dir="rtl"] .top-bar-title { border-left: none; border-right: 2.5px solid rgba(255,255,255,0.35); padding-left: 0; padding-right: 12px; }
+    [dir="rtl"] .services-list li { border-left: none; border-right: 3.5px solid var(--electric-blue); }
+    [dir="rtl"] .card-whatsapp { border-left: 1.5px solid #a7f3d0; border-right: 4px solid #10b981; }
+    [dir="rtl"] .arrow-icon { transform: rotate(180deg); }
+    [dir="rtl"] .hero-text { text-align: right; }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" id="pageContainer">
     
-    <!-- 1. Üst Tabela Alanı -->
+    <!-- 1. Üst Hero Banner -->
     <div class="hero-header">
+      <!-- 3 Dilli Seçim Butonları -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('de')">DE 🇩🇪</button>
+        <button class="lang-btn" onclick="setLanguage('tr')">TR 🇹🇷</button>
+        <button class="lang-btn" onclick="setLanguage('ar')">AR 🇸🇦</button>
+      </div>
+
       <div class="top-bar">
         <div class="logo-area">
           <img src="logo%20t%C3%BCv.png" alt="TÜV NORD Logo" class="tuv-logo">
-          <div class="top-bar-title">Kfz-Prüfstelle</div>
+          <div class="top-bar-title" data-i18n="topTitle">Kfz-Prüfstelle</div>
         </div>
 
         <div class="plakette-wrapper">
@@ -243,22 +285,22 @@
               <svg viewBox="0 0 24 24"><path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/></svg>
             </div>
             <div class="card-info">
-              <h4>Route & Anfahrt</h4>
-              <p>Direkt zur Prüfstelle navigieren</p>
+              <h4 data-i18n="btnRouteTitle">Route & Anfahrt</h4>
+              <p data-i18n="btnRouteSub">Direkt zur Prüfstelle navigieren</p>
             </div>
           </div>
           <div class="arrow-icon">›</div>
         </a>
 
-        <!-- 2. Termin (Temiz, Kutusuz ve Doğal Açıklamalı) -->
+        <!-- 2. Termin (Temiz & Düzeltilmiş Açıklama) -->
         <a href="https://www.tuev-nord.de/de/stationen/duisburg-hochfeld-kfz-ingenieurbuero-tam/" class="action-card card-termin" target="_blank">
           <div class="card-left">
             <div class="icon-circle">
               <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
             </div>
             <div class="card-info">
-              <h4>Online-Termin buchen</h4>
-              <p>Termin buchen oder auch ohne Termin möglich</p>
+              <h4 data-i18n="btnTerminTitle">Online-Termin buchen</h4>
+              <p data-i18n="btnTerminSub">Wunschtermin online vereinbaren</p>
             </div>
           </div>
           <div class="arrow-icon">›</div>
@@ -271,8 +313,8 @@
               <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             </div>
             <div class="card-info">
-              <h4>Tel: +49 163 68 14 777</h4>
-              <p>Jetzt direkt anrufen</p>
+              <h4 data-i18n="btnCallTitle">Tel: +49 163 68 14 777</h4>
+              <p data-i18n="btnCallSub">Jetzt direkt anrufen</p>
             </div>
           </div>
           <div class="arrow-icon">›</div>
@@ -285,8 +327,8 @@
               <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.39 1.24-1.93 1.32-.51.08-1.16.11-3.37-.8-2.67-1.11-4.38-3.83-4.51-4.01-.13-.18-1.07-1.42-1.07-2.71 0-1.29.68-1.92.92-2.18.24-.26.53-.33.71-.33.18 0 .36 0 .52.01.17.01.39-.06.61.47.23.55.77 1.88.84 2.02.07.14.11.31.02.5-.09.18-.14.3-.28.47-.14.16-.29.37-.42.49-.14.14-.29.3-.13.57.17.28.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.31 1.42.29.14.45.12.62-.07.17-.19.73-.85.92-1.14.2-.29.39-.24.66-.14.27.1 1.7.8 1.99.94.29.15.49.22.56.34.07.13.07.74-.17 1.41z"/></svg>
             </div>
             <div class="card-info">
-              <h4>WhatsApp Chat</h4>
-              <p>Fragen unkompliziert per Chat stellen</p>
+              <h4 data-i18n="btnWaTitle">WhatsApp Chat</h4>
+              <p data-i18n="btnWaSub">Fragen unkompliziert per Chat stellen</p>
             </div>
           </div>
           <div class="arrow-icon">›</div>
@@ -298,12 +340,12 @@
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
-          Öffnungszeiten & Standort
+          <span data-i18n="hoursTitle">Öffnungszeiten & Standort</span>
         </div>
         <div class="info-grid">
           <div>
-            <strong>Mo. – Fr.:</strong> 10:30 – 17:00 Uhr<br>
-            <strong>Freitag:</strong> 12:30 – 14:30 Uhr Mittagspause
+            <strong data-i18n="daysLabel">Mo. – Fr.:</strong> 10:30 – 17:00 <span data-i18n="uhrLabel">Uhr</span><br>
+            <strong data-i18n="fridayLabel">Freitag:</strong> 12:30 – 14:30 <span data-i18n="uhrLabel">Uhr</span> <span data-i18n="pauseLabel">Mittagspause</span>
           </div>
           <div class="address-highlight">
             📍 Karl-Jarres-Str. 92, 47053 Duisburg
@@ -315,28 +357,28 @@
       <div class="section-card">
         <div class="section-title">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          Unsere Prüfleistungen
+          <span data-i18n="servicesTitle">Unsere Prüfleistungen</span>
         </div>
         <ul class="services-list">
           <li>
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Hauptuntersuchung (HU) inkl. UMA (AU)
+            <span data-i18n="srv1">Hauptuntersuchung (HU) inkl. UMA (AU)</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Gasanlagenprüfung (GAP / GSP für Gasantriebe)
+            <span data-i18n="srv2">Gasanlagenprüfung (GAP / GSP für Gasantriebe)</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Oldtimergutachten (§ 23 StVZO / H-Kennzeichen)
+            <span data-i18n="srv3">Oldtimergutachten (§ 23 StVZO / H-Kennzeichen)</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Taxi & Mietwagen Prüfungen (BOKraft)
+            <span data-i18n="srv4">Taxi & Mietwagen Prüfungen (BOKraft)</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Änderungsabnahmen (§ 19.3 StVZO)
+            <span data-i18n="srv5">Änderungsabnahmen (§ 19.3 StVZO)</span>
           </li>
         </ul>
       </div>
@@ -344,11 +386,109 @@
     </div>
 
     <!-- Alt Footer -->
-    <div class="footer-navy">
+    <div class="footer-navy" data-i18n="footerText">
       TÜV NORD Mobilität – Offizielle Kfz-Prüfstelle
     </div>
 
   </div>
+
+  <!-- Otomatik 3 Dilli Çeviri Motoru -->
+  <script>
+    const translations = {
+      de: {
+        topTitle: "Kfz-Prüfstelle",
+        btnRouteTitle: "Route & Anfahrt",
+        btnRouteSub: "Direkt zur Prüfstelle navigieren",
+        btnTerminTitle: "Online-Termin buchen",
+        btnTerminSub: "Wunschtermin online vereinbaren",
+        btnCallTitle: "Tel: +49 163 68 14 777",
+        btnCallSub: "Jetzt direkt anrufen",
+        btnWaTitle: "WhatsApp Chat",
+        btnWaSub: "Fragen unkompliziert per Chat stellen",
+        hoursTitle: "Öffnungszeiten & Standort",
+        daysLabel: "Mo. – Fr.:",
+        fridayLabel: "Freitag:",
+        uhrLabel: "Uhr",
+        pauseLabel: "Mittagspause",
+        servicesTitle: "Unsere Prüfleistungen",
+        srv1: "Hauptuntersuchung (HU) inkl. UMA (AU)",
+        srv2: "Gasanlagenprüfung (GAP / GSP für Gasantriebe)",
+        srv3: "Oldtimergutachten (§ 23 StVZO / H-Kennzeichen)",
+        srv4: "Taxi & Mietwagen Prüfungen (BOKraft)",
+        srv5: "Änderungsabnahmen (§ 19.3 StVZO)",
+        footerText: "TÜV NORD Mobilität – Offizielle Kfz-Prüfstelle"
+      },
+      tr: {
+        topTitle: "Araç Muayene İstasyonu",
+        btnRouteTitle: "Yol Tarifi & Konum",
+        btnRouteSub: "İstasyona doğrudan navigasyon başlat",
+        btnTerminTitle: "Online Randevu Al",
+        btnTerminSub: "İstediğiniz randevuyu online oluşturun",
+        btnCallTitle: "Tel: +49 163 68 14 777",
+        btnCallSub: "Hemen doğrudan arayın",
+        btnWaTitle: "WhatsApp Destek",
+        btnWaSub: "Sorularınızı kolayca mesajla iletin",
+        hoursTitle: "Çalışma Saatleri ve Adres",
+        daysLabel: "Pzt. – Cum.:",
+        fridayLabel: "Cuma:",
+        uhrLabel: "",
+        pauseLabel: "Öğle Molası",
+        servicesTitle: "Muayene ve Test Hizmetlerimiz",
+        srv1: "Genel Araç Muayenesi (TÜV / HU) ve Egzoz (AU)",
+        srv2: "LPG / Gaz Sistemi Muayenesi (GAP / GSP)",
+        srv3: "Klasik Araç Raporu (H-Plaka / § 23 StVZO)",
+        srv4: "Taksi & Kiralık Araç Muayenesi (BOKraft)",
+        srv5: "Teknik Değişiklik ve Tadilat Onayı (§ 19.3)",
+        footerText: "TÜV NORD Mobilität – Resmi Araç Muayene İstasyonu"
+      },
+      ar: {
+        topTitle: "مركز فحص المركبات",
+        btnRouteTitle: "الاتجاهات والموقع",
+        btnRouteSub: "التوجه مباشرة إلى المركز عبر الخريطة",
+        btnTerminTitle: "حجز موعد عبر الإنترنت",
+        btnTerminSub: "احجز موعدك المفضل بسهولة",
+        btnCallTitle: "هاتف: 777 14 68 163 49+",
+        btnCallSub: "اتصل بنا مباشرة الآن",
+        btnWaTitle: "محادثة واتساب",
+        btnWaSub: "اطرح استفساراتك بسهولة عبر الدردشة",
+        hoursTitle: "أوقات العمل والموقع",
+        daysLabel: "الإثنين – الجمعة:",
+        fridayLabel: "الجمعة:",
+        uhrLabel: "",
+        pauseLabel: "استراحة الغداء",
+        servicesTitle: "خدمات الفحص الفني المعتمدة",
+        srv1: "الفحص الفني الدوري للسيارات (HU / AU)",
+        srv2: "فحص منظومة الغاز للسيارات (GAP / GSP)",
+        srv3: "فحص وتقييم السيارات الكلاسيكية (H-Plakette)",
+        srv4: "فحص سيارات الأجرة والتأجير (BOKraft)",
+        srv5: "اعتماد التعديلات الفنية على المركبات (§ 19.3)",
+        footerText: "TÜV NORD Mobilität – مركز فحص معتمد رسمياً"
+      }
+    };
+
+    function setLanguage(lang) {
+      // Aktif Buton Görünümü
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Sayfa Yönü (Arapça için RTL)
+      const container = document.getElementById('pageContainer');
+      if (lang === 'ar') {
+        container.setAttribute('dir', 'rtl');
+      } else {
+        container.removeAttribute('dir');
+      }
+
+      // Metinleri Değiştir
+      const data = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (data[key]) {
+          el.innerText = data[key];
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
